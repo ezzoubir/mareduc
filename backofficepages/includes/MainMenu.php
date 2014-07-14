@@ -308,7 +308,7 @@
 </li>
 <li><a href="index.php?action=marchands">Marchands</a></li>
 <li><a href="index.php?action=categories">Catégories</a></li>
-<li><a href="index.php?action=marques">Marques</a></li>
+<li><a href="index.php?action=coupons">Coupons</a></li>
 <li><a href="index.php?action=villes">Villes</a></li>
 </ul>
 </div>
