@@ -3,7 +3,7 @@
                 <div class="container_grid clearfix">
                     <div class="grid_12">
                         <div class="lbl-search">
-                            <input class="txt-search" id="sys_txt_search" placeholder="Search" type="search">
+                            <input class="txt-search" id="sys_txt_search" placeholder="Recherche" type="search">
                             <input class="btn-search" value="" type="submit">
                         </div>
                         <div class="select-cate">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </div><!--end: .select-cate -->
-                        <div class="range-days-left">
+                        <!--div class="range-days-left">
                             <span class="lbl-day">Days left</span>
                             <span id="sys_min_day" class="min-day">1</span>
                             <div id="sys_filter_days_left" class="filter-days noUi-target noUi-ltr noUi-horizontal noUi-background">
