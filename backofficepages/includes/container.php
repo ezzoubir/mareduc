@@ -151,6 +151,14 @@
       include 'modules/newsletter/archives.php';
       break;
       /* /NEwsletter **/
+	  
+	  case 'villes':
+      include 'modules/villes/villes.php';
+      break;
+	  
+	  case 'categories':
+      include 'modules/categories/categories.php';
+      break; 
       
   }
 

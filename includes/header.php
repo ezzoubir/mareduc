@@ -15,7 +15,10 @@
                                         <a href="index.html">Accueil</a>
                                     </li>
                                     <li>
-                                        <a href="coupon.html">Marchands</a>
+                                        <a href="coupon.html">Coupons</a>
+                                    </li>
+									<li>
+                                        <a href="marchands.html">Marchands</a>
                                     </li>
                                     <li class="has-sub">
                                         <a href="coupon-code.html">Bons à imprimer</a>
@@ -24,7 +27,7 @@
                                             <li><a href="coupon-code-2.html">Bons produits</a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-sub">
+                                    <!--li class="has-sub">
                                         <a href="brand-list.html">Deals</a>
                                         <ul class="sub-menu">
                                             <li><a href="brand-detail-1.html">Brand Detail 1</a></li>
@@ -33,7 +36,7 @@
                                             <li><a href="brand-detail-4.html">Brand Detail 4</a></li>
                                             <li><a href="brand-detail-5.html">Brand Detail 5</a></li>
                                         </ul>
-                                    </li>
+                                    </li-->
                                     <li>
                                         <a href="my-coupon.html">Mes coupons</a>
                                         <i class="icon iPickRed lbl-count"><span>12</span></i>

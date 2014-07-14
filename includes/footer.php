@@ -87,3 +87,9 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
                 </div>
             </div>
         </footer>
+<?php
+  if(isset($inscription_newsletter))
+  {
+      echo '<script type="text/javascript">alert("'.$inscription_newsletter.'");</script>';
+  }
+?>
