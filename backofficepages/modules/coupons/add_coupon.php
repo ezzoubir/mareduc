@@ -45,7 +45,7 @@ function ProposePhoto($UploadingFile)
         $handle = new upload($UploadingFile);
         if ($handle->uploaded) 
         {
-            $FileName='video_'.$_POST['marchand'].'_'.time();
+            $FileName='video_'.$_POST['titre'].'_'.time();
             $Rep='../'.RepPhoto;
             $Rep2='../'.RepPhoto.'mins';
             $ext='.'.$handle->file_src_name_ext;
@@ -65,7 +65,7 @@ function ProposePhoto($UploadingFile)
 	if(isset($_POST['ajouter']))
   {
   
-	@$uploadlogo=ProposePhoto($_FILES['logo']);
+	@$uploadphoto=ProposePhoto($_FILES['logo']);
 	
 	$uploadfile=ProposeFichier($_FILES['fichier']);
 	if($uploadfile!=false){
@@ -73,32 +73,24 @@ function ProposePhoto($UploadingFile)
 	}else{
 	$uploadfile="Null";
 	}
-	$sql='insert into marchands (marchand,logo,presentation,fichier,url,responsable,responsable_email,responsable_mobile,tel,email,reduction,adresse,site,id_ville,id_cat,message,facebook,twitter,youtube,pinterest,linkedin,date_creation) 
+	$sql='insert into coupons (titre,logo,presentation,url,site,reduction,id_ville,id_cat,id_marchand) 
 			values 
-		  ("'.$_POST['marchand'].'","'.$uploadlogo.'","'.$_POST['presentation'].'","'.$uploadfile.'","'.$_POST['url'].'","'.$_POST['responsable'].'","'.$_POST['responsable_email'].'","'.$_POST['responsable_mobile'].'","'.$_POST['tel'].'","'.$_POST['email'].'","'.$_POST['reduction'].'","'.$_POST['adresse'].'","'.$_POST['site'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['message'].'","'.$_POST['facebook'].'","'.$_POST['twitter'].'","'.$_POST['youtube'].'","'.$_POST['pinterest'].'","'.$_POST['linkedin'].'","'.date('Y-m-d').'")';
+		  ("'.$_POST['titre'].'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
 		  
 	mysql_query($sql);
 	
 	$msg='<script>alert("Les données ont été enregistré avec succès")</script>';
   }
 ?>
-<h2>Ajouter une marchand</h2>
+<h2>Ajouter une coupon</h2>
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 <table width="100%" cellspacing="5" cellpadding="0">
-		<tr><td>marchand</td><td><input type="text" name="marchand" value="" /></td></tr>
+		<tr><td>Titre</td><td><input type="text" name="titre" value="" /></td></tr>
 		<tr><td>Logo</td><td><input type="file" name="logo" value="" /></td></tr>
 		<tr><td>Présentation</td><td><textarea cols="20" rows="3" name="presentation"></textarea></td></tr>
-		<tr><td>Video (fichier)</td><td><input type="file" name="fichier" value="" /></td></tr>
-		<tr><td>Video (url)</td><td><input type="text" name="url" value="" /></td></tr>
-		<tr><td>Responsable</td><td><input type="text" name="responsable" value="" /></td></tr>
-		<tr><td>Email (Responsable)</td><td><input type="text" name="responsable_email" value="" /></td></tr>
-		<tr><td>Mobile (Responsable)</td><td><input type="text" name="responsable_mobile" value="" /></td></tr>
-		<tr><td>Tél</td><td><input type="text" name="tel" value="" /></td></tr>
-		<tr><td>email</td><td><input type="text" name="email" value="" /></td></tr>
-		<tr><td>Adresse</td><td><input type="text" name="adresse" value="" /></td></tr>
+		<tr><td>Vidéo (url)</td><td><input type="text" name="url" value="" /></td></tr>		
 		<tr><td>Web site</td><td><input type="text" name="site" value="" /></td></tr>		
 		<tr><td>Réduction</td><td><input type="text" name="reduction" value="" /></td></tr>
-		<tr><td>Map</td><td><textarea name="message"></textarea></td></tr>
 		<tr><td>Ville</td><td><select name="ville">
 		<option value=""></option>
 		<?php
@@ -109,6 +101,14 @@ function ProposePhoto($UploadingFile)
 		<option value="<?php echo $dt['id']; ?>"><?php echo $dt['ville']; ?></option>
 		<?php } ?>
 		</select></td></tr>
+		<tr><td>Marchand</td><td><select name="marchand">
+		<option value=""></option>
+		<?php
+			$sq='select * from marchands order by marchand asc';
+			$rq=mysql_query($sq);
+			while($dt=mysql_fetch_array($rq)){
+		?>
+		<option value="<?php echo $dt['id']; ?>"><?php echo $dt['marchand']; ?></option>
 		<tr><td>Secteur</td><td><select name="cat">
 		<option value=""></option>
 		<?php
@@ -119,11 +119,6 @@ function ProposePhoto($UploadingFile)
 		<option value="<?php echo $dt['id']; ?>"><?php echo $dt['cat']; ?></option>
 		<?php } ?>
 		</select></td></tr>
-		<tr><td>Facebook</td><td><input type="text" name="facebook" value="" /></td></tr>
-		<tr><td>Twitter</td><td><input type="text" name="twitter" value="" /></td></tr>
-		<tr><td>Youtube</td><td><input type="text" name="youtube" value="" /></td></tr>
-		<tr><td>Pinterest</td><td><input type="text" name="pinterest" value="" /></td></tr>
-		<tr><td>Linkedin</td><td><input type="text" name="linkedin" value="" /></td></tr>
 		<tr><td></td><td><input type="submit" name="ajouter" value="Ajouter" /></td></tr>
 </table>
 </form>

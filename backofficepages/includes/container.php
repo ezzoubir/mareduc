@@ -160,7 +160,7 @@
       include 'modules/categories/categories.php';
       break; 
 	  
-	  case 'liste_marchands':
+	  case 'marchands':
       include 'modules/marchands/liste_marchands.php';
       break;
 	  
@@ -170,6 +170,18 @@
 	  
 	  case 'add_marchand':
       include 'modules/marchands/add_marchand.php';
+      break;
+	  
+	  case 'coupons':
+      include 'modules/coupons/liste_coupons.php';
+      break;
+	  
+	  case 'modif_coupon':
+      include 'modules/coupons/modif_coupon.php';
+      break;
+	  
+	  case 'add_coupon':
+      include 'modules/coupons/add_coupon.php';
       break;
       
   }
