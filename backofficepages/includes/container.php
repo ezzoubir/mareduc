@@ -159,6 +159,18 @@
 	  case 'categories':
       include 'modules/categories/categories.php';
       break; 
+	  
+	  case 'liste_marchands':
+      include 'modules/marchands/liste_marchands.php';
+      break;
+	  
+	  case 'modif_marchand':
+      include 'modules/marchands/modif_marchand.php';
+      break;
+	  
+	  case 'add_marchand':
+      include 'modules/marchands/add_marchand.php';
+      break;
       
   }
 
