@@ -73,9 +73,9 @@ function ProposePhoto($UploadingFile)
 	}else{
 	$uploadfile="Null";
 	}
-	$sql='insert into coupons (titre,logo,presentation,url,site,reduction,id_ville,id_cat,id_marchand) 
+	$sql='insert into coupons (titre,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand) 
 			values 
-		  ("'.$_POST['titre'].'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
+		  ("'.$_POST['titre'].'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
 		  
 	mysql_query($sql);
 	
@@ -119,6 +119,8 @@ function ProposePhoto($UploadingFile)
 		<option value="<?php echo $dt['id']; ?>"><?php echo $dt['cat']; ?></option>
 		<?php } ?>
 		</select></td></tr>
+		<tr><td>Tags</td><td><textarea cols="20" rows="3" name="tags"></textarea></td></tr>
+		<tr><td>Date de fin</td><td><input type="text" name="date_fin" value="" placeholder="AAAA-MM-JJ"/></td></tr>
 		<tr><td></td><td><input type="submit" name="ajouter" value="Ajouter" /></td></tr>
 </table>
 </form>

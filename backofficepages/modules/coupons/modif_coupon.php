@@ -94,6 +94,7 @@ function ProposePhoto($UploadingFile)
   
 	$sql='update coupons set titre="'.$_POST['titre'].'",
 		presentation="'.$_POST['presentation'].'",
+		tags="'.$_POST['tags'].'",
 		url="'.$_POST['url'].'",
 		site="'.$_POST['site'].'",
 		reduction="'.$_POST['reduction'].'",
@@ -198,6 +199,7 @@ function ProposePhoto($UploadingFile)
         </div>
 			</td>
 		</tr>
+		<tr><td>Tags</td><td><textarea cols="15" rows="3" name="tags"><?php echo $dr['tags']; ?></textarea></td></tr>
 		<tr><td></td><td><input type="submit" name="modifier" value="Modifier" /></td></tr>
 </table>
 <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />
