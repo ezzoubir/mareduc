@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mar 15 Juillet 2014 à 16:20
+-- Généré le: Mer 16 Juillet 2014 à 16:29
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -1136,6 +1136,8 @@ INSERT INTO `config` (`name`, `value`) VALUES
 
 CREATE TABLE IF NOT EXISTS `coupons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(256) NOT NULL,
+  `slug` varchar(256) NOT NULL,
   `site` varchar(256) NOT NULL,
   `url` varchar(256) NOT NULL,
   `id_marchand` varchar(256) NOT NULL,
@@ -1145,6 +1147,7 @@ CREATE TABLE IF NOT EXISTS `coupons` (
   `id_cat` int(11) NOT NULL,
   `reduction` varchar(10) NOT NULL,
   `statut` int(11) NOT NULL,
+  `tags` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -1213,6 +1216,19 @@ CREATE TABLE IF NOT EXISTS `folders` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `followers`
+--
+
+CREATE TABLE IF NOT EXISTS `followers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_marchand` int(11) NOT NULL,
+  `id_membre` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `marchands`
 --
 
@@ -1220,7 +1236,8 @@ CREATE TABLE IF NOT EXISTS `marchands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fichier` varchar(256) NOT NULL,
   `url` varchar(256) NOT NULL,
-  `entreprise` varchar(256) NOT NULL,
+  `marchand` varchar(256) NOT NULL,
+  `slug` varchar(256) NOT NULL,
   `logo` text NOT NULL,
   `presentation` text NOT NULL,
   `responsable` varchar(256) NOT NULL,
@@ -1242,6 +1259,19 @@ CREATE TABLE IF NOT EXISTS `marchands` (
   `linkedin` varchar(256) NOT NULL,
   `date_creation` date NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `photos`
+--
+
+CREATE TABLE IF NOT EXISTS `photos` (
+  `id_photo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_coupon` int(11) NOT NULL,
+  `photo` text NOT NULL,
+  PRIMARY KEY (`id_photo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
