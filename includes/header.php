@@ -5,7 +5,7 @@
                         <div class="header-content clearfix">
                             <h1 id="logo" class="rs">
                                 <a href="index.html">
-                                    <img src="images/logo.png" alt="$SITE_NAME">
+                                    <img src="images/logo.png" alt="<?php echo META_TITLE; ?>">
                                 </a>
                             </h1>
                             <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a>
@@ -20,6 +20,9 @@
 									<li>
                                         <a href="marchands.html">Marchands</a>
                                     </li>
+									<!--li>
+                                        <a href="collection.html">New Collection</a>
+                                    </li-->
                                     <li class="has-sub">
                                         <a href="coupon-code.html">Bons à imprimer</a>
                                         <ul class="sub-menu">

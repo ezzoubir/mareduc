@@ -94,6 +94,7 @@ function ProposePhoto($UploadingFile)
   
 	$sql='update marchands set marchand="'.$_POST['marchand'].'",
 		presentation="'.$_POST['presentation'].'",
+		slug="'.$_POST['slug'].'",
 		url="'.$_POST['url'].'",
 		responsable="'.$_POST['responsable'].'",
 		responsable_email="'.$_POST['responsable_email'].'",
@@ -149,6 +150,7 @@ function ProposePhoto($UploadingFile)
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 <table width="100%" cellspacing="5" cellpadding="0">
 		<tr><td>marchand</td><td><input type="text" name="marchand" value="<?php echo $dr['marchand']; ?>" /></td></tr>
+		<tr><td>Slug</td><td><input type="text" name="slug" value="<?php echo $dr['slug']; ?>" /></td></tr>
 		<tr><td>Logo</td><td>
 		<?php if($dr['logo']!='') { ?>
 		<a href="<?php echo BASE_URL.RepPhoto.$dr['logo']; ?>"><img src="../images/photos/<?php echo $dr['logo']; ?>" height="110" width="200" style="border:2px solid #ccc;" /></a>
