@@ -73,9 +73,10 @@ function ProposePhoto($UploadingFile)
 	}else{
 	$uploadfile="Null";
 	}
-	$sql='insert into marchands (marchand,logo,presentation,fichier,url,responsable,responsable_email,responsable_mobile,tel,email,reduction,adresse,site,id_ville,id_cat,message,facebook,twitter,youtube,pinterest,linkedin,date_creation) 
+	$slug = strtolower(str_replace(" ", "-", $_POST['marchand']));
+	$sql='insert into marchands (marchand,slug,logo,presentation,fichier,url,responsable,responsable_email,responsable_mobile,tel,email,reduction,adresse,site,id_ville,id_cat,message,facebook,twitter,youtube,pinterest,linkedin,date_creation) 
 			values 
-		  ("'.$_POST['marchand'].'","'.$uploadlogo.'","'.$_POST['presentation'].'","'.$uploadfile.'","'.$_POST['url'].'","'.$_POST['responsable'].'","'.$_POST['responsable_email'].'","'.$_POST['responsable_mobile'].'","'.$_POST['tel'].'","'.$_POST['email'].'","'.$_POST['reduction'].'","'.$_POST['adresse'].'","'.$_POST['site'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['message'].'","'.$_POST['facebook'].'","'.$_POST['twitter'].'","'.$_POST['youtube'].'","'.$_POST['pinterest'].'","'.$_POST['linkedin'].'","'.date('Y-m-d').'")';
+		  ("'.$_POST['marchand'].'","'.$slug.'","'.$uploadlogo.'","'.$_POST['presentation'].'","'.$uploadfile.'","'.$_POST['url'].'","'.$_POST['responsable'].'","'.$_POST['responsable_email'].'","'.$_POST['responsable_mobile'].'","'.$_POST['tel'].'","'.$_POST['email'].'","'.$_POST['reduction'].'","'.$_POST['adresse'].'","'.$_POST['site'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['message'].'","'.$_POST['facebook'].'","'.$_POST['twitter'].'","'.$_POST['youtube'].'","'.$_POST['pinterest'].'","'.$_POST['linkedin'].'","'.date('Y-m-d').'")';
 		  
 	mysql_query($sql);
 	

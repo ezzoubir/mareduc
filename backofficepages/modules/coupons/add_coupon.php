@@ -73,9 +73,10 @@ function ProposePhoto($UploadingFile)
 	}else{
 	$uploadfile="Null";
 	}
-	$sql='insert into coupons (titre,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand) 
+	$slug = strtolower(str_replace(" ", "-", $_POST['titre']));
+	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand) 
 			values 
-		  ("'.$_POST['titre'].'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
+		  ("'.$_POST['titre'].'","'.$slug.'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
 		  
 	mysql_query($sql);
 	

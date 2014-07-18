@@ -93,6 +93,7 @@ function ProposePhoto($UploadingFile)
   {
   
 	$sql='update coupons set titre="'.$_POST['titre'].'",
+		slug="'.$_POST['slug'].'",
 		presentation="'.$_POST['presentation'].'",
 		tags="'.$_POST['tags'].'",
 		url="'.$_POST['url'].'",
@@ -134,6 +135,7 @@ function ProposePhoto($UploadingFile)
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
 <table width="100%" cellspacing="5" cellpadding="0">
 		<tr><td>Titre</td><td><input type="text" name="titre" value="<?php echo $dr['titre']; ?>" /></td></tr>
+		<tr><td>Slug</td><td><input type="text" name="slug" value="<?php echo $dr['slug']; ?>" /></td></tr>
 		<tr><td>Logo</td><td>
 		<?php if($dr['logo']!='') { ?>
 		<a href="<?php echo BASE_URL.RepPhoto.$dr['logo']; ?>"><img src="../images/photos/<?php echo $dr['logo']; ?>" height="110" width="200" style="border:2px solid #ccc;" /></a>
