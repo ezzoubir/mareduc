@@ -53,9 +53,17 @@ if(isset($header_article_facebook))
     <div class="mp-pusher" id="mp-pusher">
         <?php include 'header.php'; ?>
         <?php include 'mainmenu.php'; ?>
-        <?php include 'slide.php'; ?>
-        <?php include 'filter.php'; ?>
-        <?php include 'home.php'; ?>
+        <?php if($_GET['page']==1) { 
+			include 'slide.php';
+			include 'filter.php';
+			include 'home.php'; 
+		} elseif($_GET['page']==2) 
+			{ include 'coupon-detail.php';
+		} elseif($_GET['page']==3) 
+			{ include 'brand-detail.php'; 
+		} elseif($_GET['page']==4) 
+			{ include 'coupon-list.php'; } 	
+		?>
         <?php include 'footer.php'; ?>
     </div>
 </div>

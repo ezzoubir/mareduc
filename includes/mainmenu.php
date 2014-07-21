@@ -3,7 +3,7 @@
                 <h2>Menu</h2>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="coupon.html">Coupons</a></li>
+                    <li><a href="coupons.html">Coupons</a></li>
                     <li class="has-sub">
                         <a href="coupon-code.html">Coupons Code</a>
                         <div data-level="2" class="mp-level">

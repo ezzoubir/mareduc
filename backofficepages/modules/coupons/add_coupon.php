@@ -67,11 +67,11 @@ function ProposePhoto($UploadingFile)
   
 	@$uploadphoto=ProposePhoto($_FILES['logo']);
 	
-	$uploadfile=ProposeFichier($_FILES['fichier']);
+	@$uploadfile=ProposeFichier($_FILES['fichier']);
 	if($uploadfile!=false){
-	$uploadfile=ProposeFichier($_FILES['fichier']);
+	@$uploadfile=ProposeFichier($_FILES['fichier']);
 	}else{
-	$uploadfile="Null";
+	@$uploadfile="Null";
 	}
 	$slug = strtolower(str_replace(" ", "-", $_POST['titre']));
 	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand) 
@@ -110,6 +110,8 @@ function ProposePhoto($UploadingFile)
 			while($dt=mysql_fetch_array($rq)){
 		?>
 		<option value="<?php echo $dt['id']; ?>"><?php echo $dt['marchand']; ?></option>
+		<?php } ?>
+		</select></td></tr>
 		<tr><td>Secteur</td><td><select name="cat">
 		<option value=""></option>
 		<?php
