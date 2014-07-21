@@ -42,10 +42,8 @@ $req=mysql_query($sql);
 	<tr>	
 		<th>coupon</th>				<th>Marchand</th>
 		<th>Photo</th>
-		<th>Video</th>
-		<th>Web site</th>
 		<th>Ville</th>
-		<th>Catégorie</th>
+		<th>Catégorie</th>				<th>Réduction</th>
 		<th>statut</th>
 		<th>Actions</th>
 	</tr>
@@ -53,10 +51,9 @@ $req=mysql_query($sql);
 	<tbody>
 <?php while($data=mysql_fetch_array($req)) { ?>
 	<tr>	
-		<td><a href=""><?php echo $data['coupon']; ?></a></td>
-		<td><img src="../images/photos/<?php echo $data['photo']; ?>"  width="80"/></td>
-		<td><?php echo $data['fichier']; ?></td>
-		<td><?php echo $data['url']; ?></td>
+		<td><a href=""><?php echo $data['titre']; ?></a></td>		<td>			<?php 				$sq='select * from marchands where id="'.$data['id_marchand'].'"';				$rq=mysql_query($sq);				$fg=mysql_fetch_assoc($rq);				echo $fg['marchand']; 			?>		</td>
+		<td><img src="../images/photos/<?php echo $data['logo']; ?>"  width="80"/></td>
+
 		<td>
 			<?php 
 				$sq='select * from villes where id="'.$data['id_ville'].'"';
@@ -72,7 +69,7 @@ $req=mysql_query($sql);
 				$fg=mysql_fetch_assoc($rq);
 				echo $fg['cat']; 
 			?>
-		</td>
+		</td>		<td><?php echo $data['reduction']; ?></td>
 		
    <td><input type="checkbox" name="statut[<?php echo $data['id']; ?>]" <?php if($data['statut']==1) echo ' checked '; ?>></td>
 		<td><input type="image" name="save[<?php echo $data['id']; ?>]" src="imgs/floppy_disk16.gif">

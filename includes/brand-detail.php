@@ -19,7 +19,7 @@
                     <div class="grid_9 wrap-left-info">
                         <p class="rs ta-c banner-brand"><img src="images/08-03.jpg" alt="<?php echo $dtmch['marchand']; ?>"></p>
                         <div class="brand-info-right">
-                            <p class="rs ta-c brand-logo"><img src="images/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
+                            <p class="rs ta-c brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
                             <div class="rate-brand clearfix">
                                 <span class="star-rate"><span style="width: 0"></span></span>
                                 <span class="wrap-rate-score">
@@ -59,21 +59,21 @@
 								<?php
 									$sqc='select * from coupons where id_marchand = "'.$dtmch['id'].'"';
 									$rec=mysql_query($sqc);
-									while($dtc2=mysql_fetch_array($rec){
+									while($dtc2=mysql_fetch_array($rec)){
 								?>
                                 <div class="coupon-item">
                                     <div class="coupon-content">
                                         <div class="img-thumb-center">
                                             <div class="wrap-img-thumb">
                                                 <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_01.jpg" alt="$COUPON_TITLE"></a>
+                                                <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
                                             </div>
                                         </div>
                                         <div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
                                         <div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
                                         <div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
                                         <div class="time-left"><?php echo $dtc2['date_fin']; ?>9 days 4 hours left</div>
-                                        <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
+                                        <a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Take Coupon</a>
                                     </div>
                                 </div><!--end: .coupon-item -->
 								<?php } ?>

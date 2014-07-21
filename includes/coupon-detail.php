@@ -24,7 +24,7 @@
                         <span>&gt;</span>
                         <a href="#">Coupons</a>
                         <span>&gt;</span>
-                        <a href="#"><?php echo $dtmch['marchand'].' - '.$dtcp['reduction']; ?>Lindt - Save 10% off</a>
+                        <a href="#"><?php echo $dtcp['titre'].' : '.$dtcp['reduction']; ?> off</a>
                     </div>
                 </div><!--end: .mod-breadcrumb -->
                 <div class="mod-coupon-detail clearfix">
@@ -33,7 +33,7 @@
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="images/<?php echo $dtcp['logo']; ?>" alt="<?php echo $dtcp['titre']; ?>"></a>
+                                    <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt="<?php echo $dtcp['titre']; ?>"></a>
                                 </div>
                             </div>
                             <i class="stick-lbl hot-sale"></i>
@@ -66,14 +66,14 @@
 							<?php 
 								$tags = explode('-',$dtcp['tags']);
 								foreach($tags as $tag) {
-									echo '<a class="btn btn-gray type-tag" href="#">"'.$tag.'"</a>';
+									echo '<a class="btn btn-gray type-tag" href="#">'.$tag.'</a>';
 								}
 							?>
                         </div>
                     </div>
                     <div class="grid_3">
                         <div class="brand-info ta-c">
-                            <div class="brand-logo"><img src="images/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></div>
+                            <div class="brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></div>
                             <span class="star-rate"><span style="width: 91%"></span></span>
                             <div class="rated-number">
 							<?php 
@@ -83,7 +83,7 @@
 							?>
 							Followers</div>
                             <div class="brand-desc ta-l"><?php echo $dtmch['presentation']; ?></div>
-                            <a class="link-brand" href="<?php echo $dtmch['slug']; ?>.html">View Brand</a>
+                            <a class="link-brand" href="marchand-<?php echo $dtmch['slug']; ?>.html">View Brand</a>
                         </div>
                     </div>
                 </div><!--end: .mod-coupon-detail -->
@@ -97,7 +97,7 @@
 						<?php
 							$sqc='select * from coupons';
 							$rec=mysql_query($sqc);
-							while($dtc2=mysql_fetch_array($rec){
+							while($dtc2=mysql_fetch_array($rec)){
 						?>
                         <div class="coupon-item grid_3">
                             <div class="coupon-content">

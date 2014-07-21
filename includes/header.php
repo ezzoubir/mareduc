@@ -15,7 +15,7 @@
                                         <a href="index.html">Accueil</a>
                                     </li>
                                     <li>
-                                        <a href="coupon.html">Coupons</a>
+                                        <a href="coupons.html">Coupons</a>
                                     </li>
 									<li>
                                         <a href="marchands.html">Marchands</a>

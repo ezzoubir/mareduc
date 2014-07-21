@@ -115,21 +115,21 @@ function ProposePhoto($UploadingFile)
 		
 	mysql_query($sql);
 	
-	$uploadlogo=ProposePhoto($_FILES['logo']);
+	@$uploadlogo=ProposePhoto($_FILES['logo']);
 	if($uploadlogo!=false)
 		{
 			  $sql='update marchands set logo="'.$uploadlogo.'" where id="'.$_POST['id'].'"';
 			  mysql_query($sql);
 	}
 	
-	$uploadfile=ProposeFichier($_FILES['fichier']);
+	@$uploadfile=ProposeFichier($_FILES['fichier']);
 	if($uploadfile!=false)
 		{
 			  $sql='update marchands set fichier="'.$uploadfile.'" where id="'.$_POST['id'].'"';
 			  mysql_query($sql);
 	}
 	
-	$upload=ProposePhoto($_FILES['photo']);
+	@$upload=ProposePhoto($_FILES['photo']);
     if($upload!=false)
     {
           $sql='insert into photos (id_marchand,photo) values("'.$_POST['id'].'","'.$upload.'")';
@@ -183,37 +183,13 @@ function ProposePhoto($UploadingFile)
 		<tr><td>cat</td><td><select name="cat">
 		<option value=""></option>
 		<?php
-			$sq='select * from cats order by cat asc';
+			$sq='select * from categories order by cat asc';
 			$rq=mysql_query($sq);
 			while($dt=mysql_fetch_array($rq)){
 		?>
 		<option value="<?php echo $dt['id']; ?>" <?php if($dr['id_cat']==$dt['id']) { echo 'selected';} ?>><?php echo $dt['cat']; ?></option>
 		<?php } ?>
 		</select></td></tr>
-		<tr>
-			<td><b>Ajouter une photo</b></td>
-        <td><input type="file" name="photo">
-        <br/>
-        <div style=" margin-top:25px;">
-        <?php
-          $sql='select * from photos where id_marchand="'.(int)$_GET['id'].'" order by id_photo';
-          $res=mysql_query($sql);
-          while($row=mysql_fetch_array($res))
-          {
-            ?>
-              <div style="border:1px solid #000;padding:5px;float:left;margin-right:15px;margin-bottom:15px;text-align:center;">
-                <img src="../<?php echo RepPhoto.$row['photo']; ?>" width="80" border="0">
-                <br />
-                <input type="submit" name="del_image[<?php echo $row['id_photo']; ?>]" value="Supprimer" style="border:1px solid #000;">
-              </div>
-          <?php
-          }
-  
-        ?>
-        <div style="clear:both;"></div>
-        </div>
-			</td>
-		</tr>
 		<tr><td>Facebook</td><td><input type="text" name="facebook" value="<?php echo $dr['facebook']; ?>" /></td></tr>
 		<tr><td>Twitter</td><td><input type="text" name="twitter" value="<?php echo $dr['twitter']; ?>" /></td></tr>
 		<tr><td>Youtube</td><td><input type="text" name="youtube" value="<?php echo $dr['youtube']; ?>" /></td></tr>
