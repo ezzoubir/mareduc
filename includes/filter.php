@@ -23,6 +23,23 @@
                                 </div>
                             </div>
                         </div><!--end: .select-cate -->
+						<div class="select-cate">
+                            <div id="sys_selected_val" class="show-val">
+                                <span data-cate-id="1">Ville</span>
+                                <i class="pick-down"></i>
+                            </div>
+                            <div id="sys_list_dd_cate" class="dropdown-cate">
+                                <div class="first-lbl">Toutes les villes</div>
+                                <div class="wrap-list-cate clearfix">
+									<?php
+										$sql=mysql_query('select * from villes order by id');
+										while($data=mysql_fetch_array($sql)){
+									?>
+                                    <a href="#" data-cate-id="<?php echo $data['id']; ?>"><?php echo $data['ville']; ?></a>
+									<?php } ?>
+                                </div>
+                            </div>
+                        </div><!--end: .select-cate -->
                         <!--div class="range-days-left">
                             <span class="lbl-day">Days left</span>
                             <span id="sys_min_day" class="min-day">1</span>
