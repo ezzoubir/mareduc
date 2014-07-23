@@ -87,6 +87,9 @@ if(isset($header_article_facebook))
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.basic').jRating();
+			$('.scroll').jscroll({
+				autoTrigger: false
+			});
 		});
 	</script>
 <!--[if lte IE 9]>
