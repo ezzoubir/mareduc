@@ -45,6 +45,7 @@ if(isset($header_article_facebook))
     <link rel="stylesheet" href="css/res-menu.css">
     <link rel="stylesheet" href="css/responsive.css">
 
+	<link rel="stylesheet" href="jquery/jRating.jquery.css" type="text/css" />
 
 <link href="css/css.css" type="text/css" rel="stylesheet">
 <style type="text/css">#html5-text {color:#333; font-size:13px;font-weight:700; overflow:hidden; }.html5-error {text-align:center; color:#ff0000; font-size:14px; }</style></head>
@@ -82,7 +83,15 @@ if(isset($header_article_facebook))
 <script type="text/javascript" src="js/mlpushmenu.js"></script>
 
 <script type="text/javascript" src="js/script.js"></script>
-
+<script type="text/javascript" src="jquery/jRating.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.basic').jRating();
+			$('.scroll').jscroll({
+				autoTrigger: false
+			});
+		});
+	</script>
 <!--[if lte IE 9]>
 <script type="text/javascript" src="js/jquery.placeholder.js"></script>
 <script type="text/javascript" src="js/create.placeholder.js"></script>

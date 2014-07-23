@@ -21,10 +21,7 @@
                         <div class="brand-info-right">
                             <p class="rs ta-c brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
                             <div class="rate-brand clearfix">
-                                <span class="star-rate"><span style="width: 0"></span></span>
-                                <span class="wrap-rate-score">
-                                    <i class="star-rate s-rated"></i> 4/5
-                                </span>
+                                <div class="basic" data-average="12" data-id="1"></div>
                             </div>
                             <div class="count-info clearfix">
                                 <span class="lbl">Follower</span>
