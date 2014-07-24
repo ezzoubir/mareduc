@@ -31,7 +31,26 @@
                                     </div>
                                     <div class="right-content flex-body">
                                         <p class="rs save-price"><a href="#">Save <?php echo $dtcp['reduction']; ?> Off <?php echo $dtcp['presentation']; ?></a></p>
-                                        <p class="rs coupon-desc"><?php echo $dtcp['date_fin']; ?></p>
+                                        <p class="rs coupon-desc">
+											<div class="time-left"><br/>
+										<div class="countdown<?php echo $dtcp['id']; ?> styled"></div>
+											<script type="text/javascript">
+											  $(function() {
+												<?php
+													$dt = explode('-',$dtcp['date_fin']);
+													$monthName = date("F", mktime(0, 0, 0, $dt[1], 10));
+												?>
+												var endDate = "<?php echo $monthName; ?> <?php echo $dt[2]; ?>, <?php echo $dt[0]; ?> 23:59:59";
+
+												$('.countdown<?php echo $dtcp['id']; ?>.styled').countdown({
+												  date: endDate,
+												  render: function(data) {
+													$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>jours</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>heures</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>secondes</span></div>");
+												  }
+												});
+												});
+											</script></div>
+										</p>
                                         <div class="bottom-action">
                                             <div class="left-vote">
                                                 <span class="lbl-work">100% work</span>

@@ -44,7 +44,25 @@
                         <a href="#" class="brand-name"><?php echo $dtmch['marchand']; ?></a>
                         <div class="coupon-desc"><?php echo $dtcp['presentation']; ?></div>
                         <div class="wrap-btn clearfix">
-                            <div class="day-left"><?php echo $dtcp['date_fin']; ?>9 days 4 hours left</div>
+                            <div class="day-left">
+							<div class="countdown<?php echo $dtcp['id']; ?> styled"></div>
+									<script type="text/javascript">
+									  $(function() {
+										<?php
+											$dt = explode('-',$dtcp['date_fin']);
+											$monthName = date("F", mktime(0, 0, 0, $dt[1], 10));
+										?>
+										var endDate = "<?php echo $monthName; ?> <?php echo $dt[2]; ?>, <?php echo $dt[0]; ?> 23:59:59";
+
+										$('.countdown<?php echo $dtcp['id']; ?>.styled').countdown({
+										  date: endDate,
+										  render: function(data) {
+											$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>jours</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>heures</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>secondes</span></div>");
+										  }
+										});
+										});
+									</script>
+							</div>
                             <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
                         </div>
                         <div class="wrap-action clearfix">
@@ -104,13 +122,31 @@
                                 <div class="img-thumb-center">
                                     <div class="wrap-img-thumb">
                                         <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container"><img src="images/01_01.jpg" alt="$COUPON_TITLE"></a>
+                                        <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="$COUPON_TITLE"></a>
                                     </div>
                                 </div>
                                 <div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
                                 <div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
                                 <div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
-                                <div class="time-left"><?php echo $dtc2['date_fin']; ?>9 days 4 hours left</div>
+                                <div class="time-left"><br/>
+									<div class="countdown<?php echo $dtc2['id']; ?> styled"></div>
+									<script type="text/javascript">
+									  $(function() {
+										<?php
+											$dt = explode('-',$dtc2['date_fin']);
+											$monthName = date("F", mktime(0, 0, 0, $dt[1], 10));
+										?>
+										var endDate = "<?php echo $monthName; ?> <?php echo $dt[2]; ?>, <?php echo $dt[0]; ?> 23:59:59";
+
+										$('.countdown<?php echo $dtc2['id']; ?>.styled').countdown({
+										  date: endDate,
+										  render: function(data) {
+											$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>jours</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>heures</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>secondes</span></div>");
+										  }
+										});
+										});
+									</script>
+								</div>
                                 <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
                             </div>
                             <i class="stick-lbl hot-sale"></i>

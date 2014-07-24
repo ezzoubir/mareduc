@@ -48,7 +48,14 @@ if(isset($header_article_facebook))
 	<link rel="stylesheet" href="jquery/jRating.jquery.css" type="text/css" />
 
 <link href="css/css.css" type="text/css" rel="stylesheet">
-<style type="text/css">#html5-text {color:#333; font-size:13px;font-weight:700; overflow:hidden; }.html5-error {text-align:center; color:#ff0000; font-size:14px; }</style></head>
+<style type="text/css">#html5-text {color:#333; font-size:13px;font-weight:700; overflow:hidden; }.html5-error {text-align:center; color:#ff0000; font-size:14px; }</style>
+
+<script type="text/javascript" src="js/jquery_002.js"></script>
+<script type="text/javascript" src="js/jquery_004.js"></script>
+<script type="text/javascript" src="js/jquery_003.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/jquery.countdown.js" type="text/javascript"></script>
+</head>
 <body class="gray"><!--<div class="alert_w_p_u"></div>-->
 <div class="container-page">
     <div class="mp-pusher" id="mp-pusher">
@@ -72,10 +79,6 @@ if(isset($header_article_facebook))
 <script type="text/javascript" src="js/html5.js"></script>
 <![endif]-->
 
-<script type="text/javascript" src="js/jquery_002.js"></script>
-<script type="text/javascript" src="js/jquery_004.js"></script>
-<script type="text/javascript" src="js/jquery_003.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/html5lightbox.js"></script>
 <!--//js for responsive menu-->
 <script type="text/javascript" src="js/modernizr.js"></script>
