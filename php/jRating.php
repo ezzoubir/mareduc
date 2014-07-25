@@ -1,7 +1,11 @@
 <?php
 $aResponse['error'] = false;
 $aResponse['message'] = '';
-
+require 'includes/config.php';
+	$link =@mysql_connect(SQL_SVR,SQL_LOGIN,SQL_PASS); 
+	@mysql_select_db(SQL_DATABASE);
+	mysql_query("SET CHARACTER SET 'utf8';", $link)or die(mysql_error());
+	mysql_query("SET NAMES 'UTF8' ");
 // ONLY FOR THE DEMO, YOU CAN REMOVE THIS VAR
 	$aResponse['server'] = ''; 
 // END ONLY FOR DEMO
@@ -30,15 +34,9 @@ if(isset($_POST['action']))
 		// json datas send to the js file
 		if($success)
 		{
-			$aResponse['message'] = 'Your rate has been successfuly recorded. Thanks for your rate :)';
-			
-			// ONLY FOR THE DEMO, YOU CAN REMOVE THE CODE UNDER
-				$aResponse['server'] = '<strong>Success answer :</strong> Success : Your rate has been recorded. Thanks for your rate :)<br />';
-				$aResponse['server'] .= '<strong>Rate received :</strong> '.$rate.'<br />';
-				$aResponse['server'] .= '<strong>ID to update :</strong> '.$id;
-			// END ONLY FOR DEMO
-			
-			echo json_encode($aResponse);
+			sql='insert into ratings (id_marchand,ip,rate) values ()';
+			$req=mysql_query($sql);
+			$dd=mysql_fetch_array($req);
 		}
 		else
 		{

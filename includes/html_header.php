@@ -89,7 +89,14 @@ if(isset($header_article_facebook))
 <script type="text/javascript" src="jquery/jRating.jquery.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.basic').jRating();
+			$('.basic').jRating({
+				onSuccess : function(){
+					alert('Success : your rate has been saved :)');
+				  },
+				  onError : function(){
+					alert('Error : please retry');
+				  }
+			});
 			$('.scroll').jscroll({
 				autoTrigger: false
 			});

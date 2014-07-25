@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Jeu 24 Juillet 2014 à 20:09
+-- Généré le : Jeu 24 Juillet 2014 à 20:41
 -- Version du serveur: 5.5.16
 -- Version de PHP: 5.2.11
 
@@ -1305,6 +1305,20 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `id_coupon` int(11) NOT NULL,
   `photo` text NOT NULL,
   PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ratings`
+--
+
+CREATE TABLE IF NOT EXISTS `ratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_marchand` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  `ip` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
