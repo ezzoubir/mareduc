@@ -97,8 +97,39 @@ if(isset($header_article_facebook))
 					alert('Error : please retry');
 				  }
 			});
-			$('.scroll').jscroll({
+			/*$('.scroll').jscroll({
 				autoTrigger: false
+			});*/
+			$('.btn-follow-brand').click(function(){
+				var marchand = $(this).attr('data-id');
+				var data = "id_marchand="+marchand+"&action=follow";
+				$.ajax({
+					type: "POST",
+					url: 'php/Follow.php',
+					data: data,
+					onSuccess : function(){
+					alert('Success : your rate has been saved :)');
+					  },
+					  onError : function(){
+						alert('Error : please retry');
+					  }
+				});
+			});
+			
+			$('.btn-unfollow-brand').click(function(){
+				var marchand = $(this).attr('data-id');
+				var data = "id_marchand="+marchand+"&action=unfollow";
+				$.ajax({
+					type: "POST",
+					url: 'php/Follow.php',
+					data: data,
+					onSuccess : function(){
+					alert('Success : your rate has been saved :)');
+					  },
+					  onError : function(){
+						alert('Error : please retry');
+					  }
+				});
 			});
 		});
 	</script>

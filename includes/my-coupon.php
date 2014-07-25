@@ -1,4 +1,13 @@
-        <div class="top-area">
+        <?php
+			$sql='SELECT * from coupons cp 
+				  LEFT JOIN users_coupons usp 
+				  ON cp.id=usp.id_coupon 
+				  WHERE usp.id_membre="'.$_SESSION['id_membre'].'"';
+				  
+			$req=mysql_qurey($sql);
+			$total = mysql_num_rows($req);
+		?>
+		<div class="top-area">
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
@@ -13,8 +22,7 @@
                     <div class="grid_12">
                         <h3 class="title-block">
                             <span class="wrap-tab clearfix">
-                                <span class="lbl-tab active">COUPONS (12)</span>
-                                <span class="lbl-tab">COUPON CODES (8)</span>
+                                <span class="lbl-tab active">COUPONS (<?php echo $total; ?>)</span>
                                 <span class="lbl-tab">BRANDS (6)</span>
                             </span>
                         </h3>
@@ -22,134 +30,42 @@
                     <div class="block-content list-coupon clearfix">
                         <div class="tab-content">
                             <div class="tab-content-item clearfix active">
-                                <div class="coupon-item grid_3">
+                                <?php while($dtc2=mysql_fetch_array($req)){ ?>
+								<div class="coupon-item grid_3">
                                     <div class="coupon-content">
                                         <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_01.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$2.00 Off</div>
-                                        <div class="coupon-brand">Wallmart</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">9 days 4 hours left</div>
+										<div class="wrap-img-thumb">
+											<span class="ver_hold"></span>
+											<a href="coupon-detail.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
+										</div>
+										</div>
+										<div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
+										<div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
+										<div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
+										<div class="time-left"><br/>
+										<div class="countdown<?php echo $dtc2['id']; ?> styled"></div>
+											<script type="text/javascript">
+											  $(function() {
+												<?php
+													$dt = explode('-',$dtc2['date_fin']);
+													$monthName = date("F", mktime(0, 0, 0, $dt[1], 10));
+												?>
+												var endDate = "<?php echo $monthName; ?> <?php echo $dt[2]; ?>, <?php echo $dt[0]; ?> 23:59:59";
+
+												$('.countdown<?php echo $dtc2['id']; ?>.styled').countdown({
+												  date: endDate,
+												  render: function(data) {
+													$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>jours</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>heures</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>secondes</span></div>");
+												  }
+												});
+												});
+											</script>
+										</div>
                                         <a class="btn-discard" href="#">Discard coupon</a>
                                     </div>
                                     <i class="stick-lbl hot-sale"></i>
                                 </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_02.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">Save $1.50 on two</div>
-                                        <div class="coupon-brand">Lindt Chocolate</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">9 days 4 hours left</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_03.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$5.00 Off</div>
-                                        <div class="coupon-brand">Lindt Chocolate</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">EXPIRED</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_04.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$7.00 Off</div>
-                                        <div class="coupon-brand">Wallmart</div>
-                                        <div class="coupon-desc">During the Red Star Spectacular Sale going on now get an extra 20% off</div>
-                                        <div class="time-left">12 days 1 hour left</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_02.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$12.00 Off</div>
-                                        <div class="coupon-brand">Wallmart</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">EXPIRED</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_03.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$17.50 off</div>
-                                        <div class="coupon-brand">Lindt Chocolate</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">9 days 4 hours left</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_01.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$3.00 Off</div>
-                                        <div class="coupon-brand">Lindt Chocolate</div>
-                                        <div class="coupon-desc">Find Parts for All Major Brands at Sears PartsDirect </div>
-                                        <div class="time-left">EXPIRED</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
-                                <div class="coupon-item grid_3">
-                                    <div class="coupon-content">
-                                        <div class="img-thumb-center">
-                                            <div class="wrap-img-thumb">
-                                                <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/01_04.jpg" alt="$COUPON_TITLE"></a>
-                                            </div>
-                                        </div>
-                                        <div class="coupon-price">$7.00 Off</div>
-                                        <div class="coupon-brand">Wallmart</div>
-                                        <div class="coupon-desc">During the Red Star Spectacular Sale going on now get an extra 20% off</div>
-                                        <div class="time-left">12 days 1 hour left</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
-                                    </div>
-                                    <i class="stick-lbl hot-sale"></i>
-                                </div><!--end: .coupon-item -->
+								<?php } ?>
                                 <div class="grid_12">
                                     <div class="pagination">
                                         <a class="txt-nav" href="#">Newer <span>post</span></a>

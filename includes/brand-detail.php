@@ -21,7 +21,7 @@
                         <div class="brand-info-right">
                             <p class="rs ta-c brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
                             <div class="rate-brand clearfix">
-                                <div class="basic" data-average="12" data-id="1"></div>
+                                <div class="basic" data-average="12" data-id="<?php echo $dtmch['id']; ?>"></div>
                             </div>
                             <div class="count-info clearfix">
                                 <span class="lbl">Follower</span>
@@ -43,7 +43,16 @@
 									?>
 								</span>
                             </div>
-                            <a class="btn btn-blue btn-follow-brand" href="#">Follow brand</a>
+							<?php 
+								$sqq='select * from followers where id_membre = "22" and id_marchand = "'.$dtmch['id'].'"';
+								$reqq=mysql_query($sqq);
+								$nmq=mysql_num_rows($reqq);
+								if($nmq==1){
+							?>
+                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow brand</a>
+							<?php } else { ?>
+							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow brand</a>
+							<?php } ?>
                             <div class="brand-desc">
                                 <div class="title-desc">About <?php echo $dtmch['marchand']; ?></div>
                                 <p class="rs"><?php echo $dtmch['presentation']; ?> </p>

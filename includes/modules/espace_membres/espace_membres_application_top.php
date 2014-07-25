@@ -41,7 +41,7 @@ else
           $sql='update  '.PREFIXE_BDD.'membres set date_login="'.date('Y-m-d').'" where id_membre="'.$_SESSION['id_membre'].'"';
           mysql_query($sql);
           
-          header('LOCATION:index.php?language='.$language.'&page&espace_membre');
+          header('LOCATION:mes-coupons.html');
       }
       else
       {

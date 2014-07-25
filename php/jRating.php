@@ -1,7 +1,7 @@
 <?php
 $aResponse['error'] = false;
 $aResponse['message'] = '';
-require 'includes/config.php';
+require '../includes/config.php';
 	$link =@mysql_connect(SQL_SVR,SQL_LOGIN,SQL_PASS); 
 	@mysql_select_db(SQL_DATABASE);
 	mysql_query("SET CHARACTER SET 'utf8';", $link)or die(mysql_error());
@@ -9,6 +9,8 @@ require 'includes/config.php';
 // ONLY FOR THE DEMO, YOU CAN REMOVE THIS VAR
 	$aResponse['server'] = ''; 
 // END ONLY FOR DEMO
+
+
 	
 	
 if(isset($_POST['action']))
@@ -30,13 +32,25 @@ if(isset($_POST['action']))
 		$success = true;
 		// else $success = false;
 		
+		$sql='select * from ratings where ip = "'.$_SERVER['REMOTE_ADDR'].'"';
+		$req=mysql_query($sql);
+		$nm=mysql_num_rows($req);
 		
 		// json datas send to the js file
-		if($success)
+		if($success && $nm == 0)
 		{
-			sql='insert into ratings (id_marchand,ip,rate) values ()';
+			$sql='insert into ratings (id_marchand,ip,rate) values ("'.$id.'","'.$_SERVER['REMOTE_ADDR'].'","'.$rate.'")';
 			$req=mysql_query($sql);
-			$dd=mysql_fetch_array($req);
+			
+			$aResponse['message'] = 'Your rate has been successfuly recorded. Thanks for your rate :)';
+			
+			// ONLY FOR THE DEMO, YOU CAN REMOVE THE CODE UNDER
+				$aResponse['server'] = '<strong>Success answer :</strong> Success : Your rate has been recorded. Thanks for your rate :)<br />';
+				$aResponse['server'] .= '<strong>Rate received :</strong> '.$rate.'<br />';
+				$aResponse['server'] .= '<strong>ID to update :</strong> '.$id;
+			// END ONLY FOR DEMO
+			
+			echo json_encode($aResponse);
 		}
 		else
 		{

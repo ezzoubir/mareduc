@@ -4,7 +4,7 @@
                     <div class="grid_12">
                         <div class="header-content clearfix">
                             <h1 id="logo" class="rs">
-                                <a href="index.html">
+                                <a href="accueil.html">
                                     <img src="images/logo.png" alt="<?php echo META_TITLE; ?>">
                                 </a>
                             </h1>
@@ -12,7 +12,7 @@
                             <nav class="main-nav">
                                 <ul id="main-menu" class="nav nav-horizontal clearfix">
                                     <li class="active">
-                                        <a href="index.html">Accueil</a>
+                                        <a href="accueil.html">Accueil</a>
                                     </li>
                                     <li>
                                         <a href="coupons.html">Coupons</a>
@@ -55,25 +55,23 @@
                 <div class="viewport-pop">
                     <div class="transport-viewer clearfix">
                         <div class="mod-register">
-                            <h3 class="rs title-mod">Hello pretty! Welcome to Couponday.com</h3>
+                            <h3 class="rs title-mod">Déjà membre ?<br/>Merci de vous connecter en utilisant le formulaire ci-dessous </h3>
                             <div class="wrap-form-reg clearfix">
                                 <form action="#">
                                     <div class="left-form">
                                         <label class="wrap-txt" for="sys_email">
-                                            <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email">
+                                            <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
                                         </label>
                                         <label class="wrap-txt" for="sys_pass">
-                                            <input class="input-txt" id="sys_pass" placeholder="password please!" type="password">
+                                            <input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news">
-                                            <input id="sys_chk_news" class="input-chk" type="checkbox"> Remember me
-                                            <i class="icon iUncheck"></i>
                                             <a class="lost-pass" href="#">Forgot password ?</a>
                                         </label>
                                         <div class="wrap-login-btn">
-                                            <button class="btn-flat gr btn-submit-reg" type="submit">Login</button>
+                                            <button class="btn-flat gr btn-submit-reg" type="submit" name="LOGIN_FORM_ENVOYER">Connexion</button>
                                             <div class="sep-connect">
-                                                <span>Or</span>
+                                                <span>Ou</span>
                                             </div>
                                             <div class="grp-connect">
                                                 <a class="btn-flat fb" href="#">Facebook</a>
@@ -101,10 +99,10 @@ promotions from Coupons.com. Enter in an email and a password or sign up
                                 <form action="#">
                                     <div class="left-form">
                                         <label class="wrap-txt" for="sys_email_reg">
-                                            <input class="input-txt" id="sys_email_reg" placeholder="you@mail.com" type="email">
+                                            <input class="input-txt" id="sys_email_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
                                         </label>
                                         <label class="wrap-txt" for="sys_pass_reg">
-                                            <input class="input-txt" id="sys_pass_reg" placeholder="password please!" type="password">
+                                            <input class="input-txt" id="sys_pass_reg" placeholder="password please!" type="password" name="FORM_PASSWORD">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news_reg">
                                             <input id="sys_chk_news_reg" class="input-chk" type="checkbox"> Send me the weekly Couponday.com’s offers.
@@ -116,7 +114,7 @@ promotions from Coupons.com. Enter in an email and a password or sign up
                                         </label>
                                     </div>
                                     <div class="right-connect">
-                                        <button class="btn-flat yellow btn-submit-reg" type="submit">Create an account</button>
+                                        <button class="btn-flat yellow btn-submit-reg" type="submit" name="ESPACE_MEMBRE_FORM_INSCRIPTION">Create an account</button>
                                         <div class="sep-connect">
                                             <span>Or</span>
                                         </div>
