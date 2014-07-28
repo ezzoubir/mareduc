@@ -14,7 +14,7 @@
                 <div class="layout-2cols clearfix">
                     <div class="grid_8 content">
                         <div class="mod-coupons-code">
-                            <div class="wrap-list">
+                            <div id="coupons_list" class="wrap-list">
 							<?php
 								$sql='select * from coupons order by id desc';
 								$req=mysql_query($sql);
@@ -25,7 +25,7 @@
                                         <div class="wrap-logo">
                                             <div class="center-img">
                                                 <span class="ver_hold"></span>
-                                                <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt<?php echo $dtcp['titre']; ?>"></a>
+                                                <a href="coupon-<?php echo $dtcp['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt<?php echo $dtcp['titre']; ?>"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -54,10 +54,10 @@
                                         <div class="bottom-action">
                                             <div class="left-vote">
                                                 <span class="lbl-work">100% work</span>
-                                                <span>
-                                                    <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
-                                                    <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
-                                                </span>
+                                                <!--span>
+                                                    <span class="lbl-vote"><span class="vtop">12</span> <i class="icon iAddVote"></i></span>
+                                                    <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
+                                                </span-->
                                             </div>
                                             <a class="btn btn-blue btn-view-coupon" href="#">VIEW <span>COUPON</span> CODE</a>
                                         </div>

@@ -6,6 +6,7 @@ RewriteRule ^accueil.html$ index.php?language=fr&page=1&accueil
 RewriteRule ^coupon-(.*).html$ index.php?language=fr&page=2&slug=$1
 RewriteRule ^marchand-(.*).html$ index.php?language=fr&page=3&slug=$1
 RewriteRule ^coupons.html$ index.php?language=fr&page=4
+RewriteRule ^marchands.html$ index.php?language=fr&page=6
 RewriteRule ^mes-coupons.html$ index.php?language=fr&page=5
 
 

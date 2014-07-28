@@ -23,13 +23,13 @@
 									<!--li>
                                         <a href="collection.html">New Collection</a>
                                     </li-->
-                                    <li class="has-sub">
+                                    <!--li class="has-sub">
                                         <a href="coupon-code.html">Bons à imprimer</a>
                                         <ul class="sub-menu">
                                             <li><a href="coupon-code.html">Bons marchands</a></li>
                                             <li><a href="coupon-code-2.html">Bons produits</a></li>
                                         </ul>
-                                    </li>
+                                    </li-->
                                     <!--li class="has-sub">
                                         <a href="brand-list.html">Deals</a>
                                         <ul class="sub-menu">

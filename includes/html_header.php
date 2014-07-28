@@ -35,6 +35,8 @@ if(isset($header_article_facebook))
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-dark.css">
     <link rel="stylesheet" href="css/style-gray.css">
+
+
     <!--[if IE 9]>
     <link rel="stylesheet" href="css/ie9.css"/>
     <![endif]-->
@@ -70,7 +72,9 @@ if(isset($header_article_facebook))
 		} elseif($_GET['page']==3) 
 			{ include 'brand-detail.php'; 
 		} elseif($_GET['page']==4) 
-			{ include 'coupon-list.php'; } 	
+			{ include 'coupon-list.php';
+		}elseif($_GET['page']==6) 
+			{ include 'brand-list.php'; } 	
 		?>
         <?php include 'footer.php'; ?>
     </div>
@@ -131,6 +135,45 @@ if(isset($header_article_facebook))
 					  }
 				});
 			});
+			$("#sys_apply_filter").on("click",function(){
+								
+								
+									  $('body .scroll').html('<p style="text-align:center"><img src="../images/loading.gif" /></p>');
+								
+															
+								setTimeout(function() {
+								var srch = $("#sys_txt_search").val();
+								var categ = $("#sys_selected_val").children("span").attr("data-cate-id");
+								var villeid = $("#sys_selected_val_2").children("span").attr("data-ville-id");
+								var formData = "filter=1&search="+srch+"&catId="+categ+"&cityId="+villeid;
+							$.ajax({
+								
+								url : "includes/result.php",
+								type: "POST",
+								data : formData,
+								success: function(data)
+								{
+									$('body .scroll').html(data);
+								},
+								error: function ()
+								{
+							 
+								}
+							});
+							}, 3000);
+					});
+						$('#filterOptions span').click(function() {
+							var ourClass = $(this).attr('class');
+							if(ourClass == 'all') {
+							  $('#ourHolder').children('div.item').show();
+							}
+							else {
+							  $('#ourHolder').children('div:not(.' + ourClass + ')').hide();
+							  $('#ourHolder').children('div.' + ourClass).show();
+							}
+							return false;
+						  });
+
 		});
 	</script>
 <!--[if lte IE 9]>
