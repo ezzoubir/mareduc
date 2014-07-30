@@ -25,7 +25,7 @@
 									<div class="img-thumb-center">
 										<div class="wrap-img-thumb">
 											<span class="ver_hold"></span>
-											<a href="coupon-detail.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
+											<a href="coupon-<?php echo $dtc2['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
 										</div>
 									</div>
 									<div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>

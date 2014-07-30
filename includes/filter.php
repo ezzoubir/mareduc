@@ -25,7 +25,7 @@
                         </div><!--end: .select-cate -->
 						<div class="select-cate">
                             <div id="sys_selected_val_2" class="show-val">
-                                <span data-ville-id="1">Ville</span>
+                                <span data-ville-id="0">Ville</span>
                                 <i class="pick-down"></i>
                             </div>
                             <div id="sys_list_dd_ville" class="dropdown-cate">

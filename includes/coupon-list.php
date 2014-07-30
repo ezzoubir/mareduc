@@ -14,7 +14,7 @@
                 <div class="layout-2cols clearfix">
                     <div class="grid_8 content">
                         <div class="mod-coupons-code">
-                            <div id="coupons_list" class="wrap-list">
+                            <div id="coupons_list" class="wrap-list couponslist">
 							<?php
 								$sql='select * from coupons order by id desc';
 								$req=mysql_query($sql);
@@ -59,7 +59,7 @@
                                                     <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
                                                 </span-->
                                             </div>
-                                            <a class="btn btn-blue btn-view-coupon" href="#">VIEW <span>COUPON</span> CODE</a>
+                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">VIEW <span>COUPON</span> CODE</a>
                                         </div>
                                     </div>
                                 </div><!--end: .coupons-code-item -->
@@ -82,7 +82,7 @@
                             <div class="block-content">
                                 <div class="wrap-list-store clearfix">
 								<?php	
-									$sql='select * from marchands order by id desc';
+									$sql='select * from marchands order by id desc limit 4';
 									$req=mysql_query($sql);
 									while($dtmch=mysql_fetch_assoc($req)){
 								?>
@@ -111,7 +111,7 @@
 								foreach($tagscp as $tag) {
 									$tags = explode('-',$tag);
 									foreach($tags as $tag) {
-										echo '<a class="btn btn-gray type-tag" href="#">'.$tag.'</a>';
+										echo '<span class="btn btn-gray type-tag" data-value="'.$tag.'">'.$tag.'</span>';
 									}
 								}
 							?>

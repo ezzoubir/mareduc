@@ -53,7 +53,7 @@ else
   if(isset($_POST['ESPACE_MEMBRE_FORM_INSCRIPTION']))
   {
       // traitement de l'inscription
-      if($_POST['FORM_NOM']!='' && $_POST['FORM_PRENOM']!='' && $_POST['FORM_EMAIL']!='' && $_POST['FORM_PASSWORD']!='' && $_POST['FORM_PASSWORD']==$_POST['FORM_PASSWORD2'])
+      if($_POST['FORM_NOM']!='' && $_POST['FORM_EMAIL']!='' && $_POST['FORM_PASSWORD']!='' && $_POST['FORM_PASSWORD']==$_POST['FORM_PASSWORD2'])
       {
           // on verifi que le compte n'existe pas
           $sql='select * from '.PREFIXE_BDD.'membres where email="'.$_POST['FORM_EMAIL'].'"';
@@ -61,11 +61,9 @@ else
           if(mysql_num_rows($res)==0)
           {
 	
-				$produits=serialize($_POST['produits']);
-		
-		
+					
               // on peut continuer
-              $sql='insert into '.PREFIXE_BDD.'membres (nom,prenom,societe,adresse,siren,fax,site,zone,typologie,fonction,engage,produits,email,password,language,date_inscription,statut)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_PRENOM'].'","'.$_POST['societe'].'","'.$_POST['adresse'].'","'.$_POST['siren'].'","'.$_POST['fax'].'","'.$_POST['site'].'","'.$_POST['zone'].'","'.$_POST['typologie'].'","'.$_POST['fonction'].'","'.$_POST['engage'].'",\''.$produits.'\',"'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.$language.'","'.date('Y-m-d').'","'.$statut.'")';
+              $sql='insert into '.PREFIXE_BDD.'membres (nom,societe,adresse,tel,email,password,date_inscription,statut)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_SOCIETE'].'","'.$_POST['FORM_ADRESSE'].'","'.$_POST['FORM_TEL'].'","'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.date('Y-m-d').'","'.$statut.'")';
               mysql_query($sql);
 			
               // envoi email de confirmation
@@ -78,7 +76,10 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                     $message='<div>';
                   else
                     $message='<div dir="rtl">';
-                  $message.='<br /><br />'.INSCRIPTION_MEMBRE_OK.'<br /><br />'.MAIL_SIGNATURE;
+                  $message.='<br /><br />Merci de vous être enregistré sur Dealonline.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
+				  $message.='Identifiant : '.$_POST['FORM_EMAIL'];
+				  $message.='Mot de passe : '.$_POST['FORM_PASSWORD'];
+				  $message.='Cordialement,<br/>L`\'équipe Couponday.ma';
                   $message.='</div>';
                   $mail = new PHPmailer();
                   $mail->IsHTML(true);
@@ -94,7 +95,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
               
               
               
-              header('LOCATION:index.php?language='.$language.'&page&espace_membre&inscription&valide');
+              header('LOCATION:index.php?language=fr&page=1&inscription=valide');
           }  
           else
           {

@@ -81,7 +81,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
                             <a href="#">Contact</a>
                         </div>
                         <div class="copyright">
-                            Copyright © 2014 by www.couponday.com
+                            Copyright Â© 2014 by www.couponday.com
                         </div>
                     </div>
                 </div>

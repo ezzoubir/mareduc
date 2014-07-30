@@ -57,7 +57,7 @@
                     <div class="grid_12">
                         <h3 class="title-block has-link">
                             POPULAR BRANDS (129)
-                            <a href="#" class="link-right">See all <i class="pick-right"></i></a>
+                            <a href="marchands.html" class="link-right">See all <i class="pick-right"></i></a>
                         </h3>
                     </div>
                     <div class="block-content list-brand clearfix">

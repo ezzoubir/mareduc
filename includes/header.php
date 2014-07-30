@@ -61,9 +61,7 @@
                                     <div class="left-form">
                                         <label class="wrap-txt" for="sys_email">
                                             <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
-                                        </label>
-                                        <label class="wrap-txt" for="sys_pass">
-                                            <input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
+											<input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news">
                                             <a class="lost-pass" href="#">Forgot password ?</a>
@@ -96,20 +94,25 @@ get exclusive access to members-only savings, rewards and special
 promotions from Coupons.com. Enter in an email and a password or sign up
  with Facebook.</div>
                             <div class="wrap-form-reg clearfix">
-                                <form action="#">
+                                <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
                                     <div class="left-form">
+										<label class="wrap-txt" for="sys_email_reg">
+											<input class="input-txt" id="sys_email_reg" placeholder="Raison social" type="text" name="FORM_SOCIETE" style="width:99%">
+										</label>
                                         <label class="wrap-txt" for="sys_email_reg">
-                                            <input class="input-txt" id="sys_email_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
+                                            <input class="input-txt" id="sys_email_reg" placeholder="Nom & Prénom" type="text" name="FORM_NOM">
+                                            <input class="input-txt" id="sys_name_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
                                         </label>
                                         <label class="wrap-txt" for="sys_pass_reg">
                                             <input class="input-txt" id="sys_pass_reg" placeholder="password please!" type="password" name="FORM_PASSWORD">
+                                            <input class="input-txt" id="sys_pass_2" placeholder="Confirm please!" type="password" name="FORM_PASSWORD2">
+                                        </label>
+										<label class="wrap-txt" for="sys_pass_adrs">
+                                            <input class="input-txt" id="sys_adrs" placeholder="Adresse" type="text" name="FORM_ADRESSE">
+                                            <input class="input-txt" id="sys_tel" placeholder="Tél" type="text" name="FORM_TEL">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news_reg">
-                                            <input id="sys_chk_news_reg" class="input-chk" type="checkbox"> Send me the weekly Couponday.com’s offers.
-                                            <i class="icon iUncheck"></i>
-                                        </label>
-                                        <label class="wrap-check" for="sys_chk_agree">
-                                            <input id="sys_chk_agree" class="input-chk" type="checkbox"> I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                                            <input id="sys_chk_news_reg" class="input-chk" name="FORM_NEWSLETTER" type="checkbox"> Send me the weekly Couponday.com’s offers.
                                             <i class="icon iUncheck"></i>
                                         </label>
                                     </div>

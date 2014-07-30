@@ -137,31 +137,49 @@ if(isset($header_article_facebook))
 			});
 			$("#sys_apply_filter").on("click",function(){
 								
-								
-									  $('body .scroll').html('<p style="text-align:center"><img src="../images/loading.gif" /></p>');
-								
+								$('body .scroll').html('<p style="text-align:center"><img src="<?php echo BASE_URL;?>images/loading.gif" /></p>');
 															
 								setTimeout(function() {
 								var srch = $("#sys_txt_search").val();
 								var categ = $("#sys_selected_val").children("span").attr("data-cate-id");
 								var villeid = $("#sys_selected_val_2").children("span").attr("data-ville-id");
 								var formData = "filter=1&search="+srch+"&catId="+categ+"&cityId="+villeid;
-							$.ajax({
-								
-								url : "includes/result.php",
-								type: "POST",
-								data : formData,
-								success: function(data)
-								{
-									$('body .scroll').html(data);
-								},
-								error: function ()
-								{
-							 
-								}
-							});
+								$.ajax({
+										url : "includes/result.php",
+										type: "POST",
+										data : formData,
+										success: function(data)
+										{
+											$('body .scroll').html(data);
+										},
+										error: function ()
+										{
+									 
+										}
+								});
 							}, 3000);
 					});
+			$('span .type-tag').click(function(){
+				$('body .couponslist').html('<p style="text-align:center"><img src="<?php echo BASE_URL;?>images/loading.gif" /></p>');
+				setTimeout(function() {
+								var tag = $(this).attr('data-value');
+								alert(tag);
+								var formData = "filter=3&tag="+tag;
+								$.ajax({
+										url : "includes/result.php",
+										type: "POST",
+										data : formData,
+										success: function(data)
+										{
+											$('body .couponslist').html(data);
+										},
+										error: function ()
+										{
+									 
+										}
+								});
+				}, 3000);	
+			});
 						$('#filterOptions span').click(function() {
 							var ourClass = $(this).attr('class');
 							if(ourClass == 'all') {
