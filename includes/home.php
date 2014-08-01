@@ -24,7 +24,7 @@
 											</a>
 										</div>
 									</div>
-									<div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
+									<div class="coupon-price">Réduction de: <?php echo $dtc2['reduction']; ?></div>
 									<div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
 									<div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
 									<div class="time-left"><br/>

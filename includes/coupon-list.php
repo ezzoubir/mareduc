@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                     <div class="right-content flex-body">
-                                        <p class="rs save-price"><a href="#">Save <?php echo $dtcp['reduction']; ?> Off <?php echo $dtcp['presentation']; ?></a></p>
+                                        <p class="rs save-price"><a href="#">Réduction de: <?php echo $dtcp['reduction']; ?> <br/> <?php echo $dtcp['presentation']; ?></a></p>
                                         <p class="rs coupon-desc">
 											<div class="time-left"><br/>
 										<div class="countdown<?php echo $dtcp['id']; ?> styled"></div>
@@ -55,13 +55,13 @@
 										</p>
                                         <div class="bottom-action">
                                             <div class="left-vote">
-                                                <span class="lbl-work">100% work</span>
+                                                <span class="lbl-work">100% ça marche</span>
                                                 <!--span>
                                                     <span class="lbl-vote"><span class="vtop">12</span> <i class="icon iAddVote"></i></span>
                                                     <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
                                                 </span-->
                                             </div>
-                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">VIEW <span>COUPON</span> CODE</a>
+                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">Voir le code</a>
                                         </div>
                                     </div>
                                 </div><!--end: .coupons-code-item -->
