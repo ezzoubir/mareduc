@@ -43,7 +43,7 @@ $req=mysql_query($sql);
 		<th>coupon</th>				<th>Marchand</th>
 		<th>Photo</th>
 		<th>Ville</th>
-		<th>Catégorie</th>				<th>Réduction</th>
+		<th>Catégorie</th>				<th>Réduction</th>				<th>Date Debut</th>				<th>Date Fin</th>
 		<th>statut</th>
 		<th>Actions</th>
 	</tr>
@@ -69,7 +69,7 @@ $req=mysql_query($sql);
 				$fg=mysql_fetch_assoc($rq);
 				echo $fg['cat']; 
 			?>
-		</td>		<td><?php echo $data['reduction']; ?></td>
+		</td>		<td><?php echo $data['reduction']; ?></td>		<td><?php echo $data['date_debut']; ?></td>		<td><?php echo $data['date_fin']; ?></td>
 		
    <td><input type="checkbox" name="statut[<?php echo $data['id']; ?>]" <?php if($data['statut']==1) echo ' checked '; ?>></td>
 		<td><input type="image" name="save[<?php echo $data['id']; ?>]" src="imgs/floppy_disk16.gif">

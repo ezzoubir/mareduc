@@ -74,14 +74,13 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
                 <div class="grid_frame">
                     <div class="container_grid clearfix">
                         <div class="left-link">
-                            <a href="#">Home</a>
-                            <a href="#">Term of conditions</a>
-                            <a href="#">Privacy</a>
-                            <a href="#">Support</a>
-                            <a href="#">Contact</a>
+                            <a href="accueil.html">Accueil</a>
+                            <a href="mentions.html">Mentions légales</a>
+                            <a href="commerciaux.html">Commerciaux</a>
+                            <a href="contact.html">Contact</a>
                         </div>
                         <div class="copyright">
-                            Copyright © 2014 by www.couponday.com
+                            www.groupromo.ma Copyright © 2014 by INTELLIGENCIA
                         </div>
                     </div>
                 </div>

@@ -310,6 +310,8 @@
 <li><a href="index.php?action=categories">Catégories</a></li>
 <li><a href="index.php?action=coupons">Coupons</a></li>
 <li><a href="index.php?action=villes">Villes</a></li>
+<li><a href="index.php?action=liste_delegues">Commerciaux</a></li>
+<li><a href="index.php?action=liste_supervision">Supervision</a></li>
 </ul>
 </div>
 <div style="clear:both"></div>

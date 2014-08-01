@@ -74,9 +74,9 @@ function ProposePhoto($UploadingFile)
 	@$uploadfile="Null";
 	}
 	$slug = strtolower(str_replace(" ", "-", $_POST['titre']));
-	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand) 
+	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand,date_debut,date_fin) 
 			values 
-		  ("'.$_POST['titre'].'","'.$slug.'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'")';
+		  ("'.$_POST['titre'].'","'.$slug.'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'","'.$_POST['date_debut'].'","'.$_POST['date_fin'].'")';
 		  
 	mysql_query($sql);
 	
@@ -123,6 +123,7 @@ function ProposePhoto($UploadingFile)
 		<?php } ?>
 		</select></td></tr>
 		<tr><td>Tags</td><td><textarea cols="20" rows="3" name="tags"></textarea></td></tr>
+		<tr><td>Date de debut</td><td><input type="text" name="date_debut" value="" placeholder="AAAA-MM-JJ"/></td></tr>
 		<tr><td>Date de fin</td><td><input type="text" name="date_fin" value="" placeholder="AAAA-MM-JJ"/></td></tr>
 		<tr><td></td><td><input type="submit" name="ajouter" value="Ajouter" /></td></tr>
 </table>

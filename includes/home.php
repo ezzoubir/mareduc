@@ -3,8 +3,8 @@
                 <div class="mod-grp-coupon block clearfix">
                     <div class="grid_12">
                         <h3 class="title-block has-link">
-                            New Coupons
-                            <a href="coupons.html" class="link-right">See all <i class="pick-right"></i></a>
+                            Promos Phares
+                            <a href="coupons.html" class="link-right">Voir tous <i class="pick-right"></i></a>
                         </h3>
                     </div>
                     <div class="scroll block-content list-coupon clearfix">
@@ -50,14 +50,14 @@
 							</div><!--end: .coupon-item -->
 						<?php } ?>
                     </div>
-					<a class="grid_6 btn btn-orange btn-load-more" href="#">Load more coupon</a>
+					<!--a class="grid_6 btn btn-orange btn-load-more" href="#">Load more coupon</a-->
                 </div><!--end block: New Coupons-->
 				<?php include 'newsletter.php'; ?>
                 <div class="mod-brands block clearfix">
                     <div class="grid_12">
                         <h3 class="title-block has-link">
-                            POPULAR BRANDS (129)
-                            <a href="marchands.html" class="link-right">See all <i class="pick-right"></i></a>
+                            MARCHANDS POPULAIRES (<?php echo getBrandsTotal(); ?>)
+                            <a href="marchands.html" class="link-right">Voir tous <i class="pick-right"></i></a>
                         </h3>
                     </div>
                     <div class="block-content list-brand clearfix">

@@ -101,12 +101,14 @@ function ProposePhoto($UploadingFile)
 		reduction="'.$_POST['reduction'].'",
 		id_ville="'.$_POST['ville'].'",
 		id_marchand="'.$_POST['marchand'].'",
+		date_debut="'.$_POST['date_debut'].'",
+		date_fin="'.$_POST['date_fin'].'",
 		id_cat="'.$_POST['cat'].'" where id="'.$_POST['id'].'"';
 		
 	mysql_query($sql);
 	
 		
-	$uploadlogo=ProposeFichier($_FILES['logo']);
+	@$uploadfile=ProposeFichier($_FILES['logo']);
 	if($uploadfile!=false)
 		{
 			  $sql='update coupons set logo="'.$uploadfile.'" where id="'.$_POST['id'].'"';
@@ -114,7 +116,7 @@ function ProposePhoto($UploadingFile)
 	}
 	
 		
-	$upload=ProposePhoto($_FILES['photo']);
+	@$upload=ProposePhoto($_FILES['photo']);
     if($upload!=false)
     {
           $sql='insert into photos (id_coupon,photo) values("'.$_POST['id'].'","'.$upload.'")';
@@ -170,7 +172,7 @@ function ProposePhoto($UploadingFile)
 		<tr><td>Catégorie</td><td><select name="cat">
 		<option value=""></option>
 		<?php
-			$sq='select * from cats order by cat asc';
+			$sq='select * from categories order by cat asc';
 			$rq=mysql_query($sq);
 			while($dt=mysql_fetch_array($rq)){
 		?>
@@ -202,6 +204,8 @@ function ProposePhoto($UploadingFile)
 			</td>
 		</tr>
 		<tr><td>Tags</td><td><textarea cols="15" rows="3" name="tags"><?php echo $dr['tags']; ?></textarea></td></tr>
+		<tr><td>Date de debut</td><td><input type="text" name="date_debut" value="<?php echo $dr['date_debut']; ?>" placeholder="AAAA-MM-JJ"/></td></tr>
+		<tr><td>Date de fin</td><td><input type="text" name="date_fin" value="<?php echo $dr['date_fin']; ?>" placeholder="AAAA-MM-JJ"/></td></tr>
 		<tr><td></td><td><input type="submit" name="modifier" value="Modifier" /></td></tr>
 </table>
 <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>" />

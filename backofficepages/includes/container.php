@@ -183,6 +183,30 @@
 	  case 'add_coupon':
       include 'modules/coupons/add_coupon.php';
       break;
+	  
+	  case 'liste_delegues':
+      include 'modules/delegues/liste_delegues.php';
+      break;
+	  
+	  case 'modif_delegue':
+      include 'modules/delegues/modif_delegue.php';
+      break;
+	  
+	  case 'add_delegue':
+      include 'modules/delegues/add_delegue.php';
+      break;
+	  
+	  case 'liste_supervision':
+      include 'modules/supervision/liste_supervision.php';
+      break;
+	  
+	  case 'modif_supervision':
+      include 'modules/supervision/modif_supervision.php';
+      break;
+	  
+	  case 'add_supervision':
+      include 'modules/supervision/add_supervision.php';
+      break;
       
   }
 

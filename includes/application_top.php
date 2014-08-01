@@ -206,6 +206,13 @@
       return $NewDate;
   }
   
+  function getBrandsTotal(){
+	$sql='select * from marchands order by marchand';
+	$req=mysql_query($sql);
+	$num=mysql_num_rows($req);
+	
+	return $num;
+  }
   /*  /FONCTIONS GLOBALES */
   
   /* MODULES */

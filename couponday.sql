@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Jeu 24 Juillet 2014 à 20:41
--- Version du serveur: 5.5.16
--- Version de PHP: 5.2.11
+-- Généré le: Ven 01 Août 2014 à 09:51
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.3.13
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cat` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
 
 --
 -- Contenu de la table `categories`
@@ -76,7 +76,8 @@ INSERT INTO `categories` (`id`, `cat`) VALUES
 (37, 'Vente privées'),
 (38, 'Vêtements enfants'),
 (39, 'Vêtements-mode'),
-(40, 'Voyages');
+(40, 'Voyages'),
+(41, 'Autres');
 
 -- --------------------------------------------------------
 
@@ -581,34 +582,14 @@ CREATE TABLE IF NOT EXISTS `cms_v2_membres` (
   `prenom` text NOT NULL,
   `societe` text NOT NULL,
   `adresse` text NOT NULL,
-  `siren` varchar(50) NOT NULL,
-  `fax` varchar(30) NOT NULL,
-  `site` varchar(120) NOT NULL,
-  `zone` text NOT NULL,
-  `typologie` varchar(20) NOT NULL,
-  `fonction` text NOT NULL,
-  `engage` varchar(15) NOT NULL,
-  `produits` text NOT NULL,
-  `personne_responsable` text NOT NULL,
-  `delai_reservation` tinyint(4) NOT NULL DEFAULT '0',
-  `restauration_groupe` tinyint(4) NOT NULL DEFAULT '0',
-  `salles_privatives` tinyint(4) NOT NULL DEFAULT '0',
-  `soirees_themes` tinyint(4) NOT NULL DEFAULT '0',
-  `soirees_privatives` tinyint(4) NOT NULL DEFAULT '0',
+  `tel` varchar(60) NOT NULL,
   `password` text NOT NULL,
   `email` text NOT NULL,
-  `email_professionnel` text NOT NULL,
   `language` text NOT NULL,
   `date_inscription` date NOT NULL DEFAULT '0000-00-00',
   `date_login` date NOT NULL DEFAULT '0000-00-00',
   `statut` tinyint(4) NOT NULL DEFAULT '0',
   `privilege` tinyint(4) NOT NULL DEFAULT '0',
-  `pdf1` text NOT NULL,
-  `pdf2` text NOT NULL,
-  `pdf3` text NOT NULL,
-  `pdf1_autorisation` tinyint(4) NOT NULL DEFAULT '0',
-  `pdf2_autorisation` tinyint(4) NOT NULL DEFAULT '0',
-  `pdf3_autorisation` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_membre`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
@@ -709,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `cms_v2_metatags` (
 --
 
 INSERT INTO `cms_v2_metatags` (`id_metatags`, `language`, `titre`, `description`, `mots`, `tags`) VALUES
-(1, 'fr', 'Ma Reduction', '', '', 'tag sifro photo video Sifro '),
+(1, 'fr', 'Groupromo', '', '', 'tag sifro photo video Sifro '),
 (3, 'al', ':: BOOKING TABLES  ::', '', '', ''),
 (2, 'en', '', '', '', '');
 
@@ -1147,6 +1128,7 @@ CREATE TABLE IF NOT EXISTS `coupons` (
   `id_cat` int(11) NOT NULL,
   `reduction` varchar(10) NOT NULL,
   `statut` int(11) NOT NULL,
+  `date_debut` date NOT NULL,
   `date_fin` date NOT NULL,
   `tags` text NOT NULL,
   PRIMARY KEY (`id`)
@@ -1156,9 +1138,9 @@ CREATE TABLE IF NOT EXISTS `coupons` (
 -- Contenu de la table `coupons`
 --
 
-INSERT INTO `coupons` (`id`, `titre`, `slug`, `site`, `url`, `id_marchand`, `logo`, `presentation`, `id_ville`, `id_cat`, `reduction`, `statut`, `date_fin`, `tags`) VALUES
-(1, 'Walmart', 'walmart', '', '', '1', 'logo_1405814614.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 9, '-10%', 1, '2014-08-25', 'chocolat - gateaux - enfants'),
-(2, 'chekolip', 'chekolip', '', '', '1', 'logo_1405814863.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 12, '-5%', 1, '2014-09-10', 'chocolat - bébé - enfants - cakes');
+INSERT INTO `coupons` (`id`, `titre`, `slug`, `site`, `url`, `id_marchand`, `logo`, `presentation`, `id_ville`, `id_cat`, `reduction`, `statut`, `date_debut`, `date_fin`, `tags`) VALUES
+(1, 'Walmart', 'walmart', '', '', '1', 'logo_1405814614.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 9, '-10%', 1, '2014-06-05', '2014-08-25', 'chocolat - gateaux - enfants'),
+(2, 'chekolip', 'chekolip', '', '', '1', 'logo_1405814863.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 12, '-5%', 1, '2014-07-01', '2014-09-10', 'chocolat - bébé - enfants - cakes');
 
 -- --------------------------------------------------------
 
@@ -1179,6 +1161,23 @@ CREATE TABLE IF NOT EXISTS `dates_fermeture` (
 
 INSERT INTO `dates_fermeture` (`id`, `date_fermeture`, `id_membre`) VALUES
 (293, '2011-04-28', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `delegues`
+--
+
+CREATE TABLE IF NOT EXISTS `delegues` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `photo` text NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tel` varchar(60) NOT NULL,
+  `id_ville` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1233,7 +1232,14 @@ CREATE TABLE IF NOT EXISTS `followers` (
   `id_marchand` int(11) NOT NULL,
   `id_membre` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `followers`
+--
+
+INSERT INTO `followers` (`id`, `id_marchand`, `id_membre`) VALUES
+(2, 1, 22);
 
 -- --------------------------------------------------------
 
@@ -1291,7 +1297,7 @@ CREATE TABLE IF NOT EXISTS `marchands` (
 --
 
 INSERT INTO `marchands` (`id`, `fichier`, `url`, `marchand`, `slug`, `logo`, `presentation`, `responsable`, `responsable_email`, `responsable_mobile`, `tel`, `email`, `adresse`, `site`, `id_ville`, `id_cat`, `message`, `reduction`, `statut`, `facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `date_creation`) VALUES
-(1, 'Null', '', 'Lindt', 'lindt', 'logo_1405813823.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'Kamal Amine', 'test@test.td', '0661094199', '0537680888', 'assurances.daraz@sahamassurance.com', 'txt txt txt txt txt txt txt', 'www.fff.ef', 9, 0, '', '-30%', 1, '', '', '', '', '', '2014-07-20'),
+(1, 'Null', '', 'Lindt', 'lindt', 'logo_1405813823.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'Kamal Amine', 'test@test.td', '0661094199', '0537680888', 'assurances.daraz@sahamassurance.com', 'txt txt txt txt txt txt txt', 'www.fff.ef', 9, 5, '', '-30%', 1, '', '', '', '', '', '2014-07-20'),
 (2, 'Null', '', 'Target', 'target', 'logo_1405813916.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'MALEK Lamia', 'test@target.fr', '0669565656', '0644327630', 'moonoptic@gmail.com', 'txt txt txt txt txt txt txt', 'www.target.com', 9, 12, '', '-15%', 1, '', '', '', '', '', '2014-07-20');
 
 -- --------------------------------------------------------
@@ -1318,6 +1324,30 @@ CREATE TABLE IF NOT EXISTS `ratings` (
   `id_marchand` int(11) NOT NULL,
   `rate` int(11) NOT NULL,
   `ip` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `id_marchand`, `rate`, `ip`) VALUES
+(4, 1, 18, '127.0.0.1');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `supervision`
+--
+
+CREATE TABLE IF NOT EXISTS `supervision` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_delegue` int(11) NOT NULL,
+  `id_marchand` int(11) NOT NULL,
+  `commission` int(11) NOT NULL,
+  `duree_contrat` int(11) NOT NULL,
+  `type_paiement` varchar(100) NOT NULL,
+  `chiffre_affaire` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
