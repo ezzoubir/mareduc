@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 01 Août 2014 à 09:51
+-- Généré le: Ven 01 Août 2014 à 14:09
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `couponday`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `catalogues`
+--
+
+CREATE TABLE IF NOT EXISTS `catalogues` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `catalogue_titre` varchar(250) NOT NULL,
+  `id_marchand` int(11) NOT NULL,
+  `catalogue` text NOT NULL,
+  `photo` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -591,7 +606,14 @@ CREATE TABLE IF NOT EXISTS `cms_v2_membres` (
   `statut` tinyint(4) NOT NULL DEFAULT '0',
   `privilege` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_membre`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+
+--
+-- Contenu de la table `cms_v2_membres`
+--
+
+INSERT INTO `cms_v2_membres` (`id_membre`, `login`, `nom`, `prenom`, `societe`, `adresse`, `tel`, `password`, `email`, `language`, `date_inscription`, `date_login`, `statut`, `privilege`) VALUES
+(24, '', 'ezzoubir didro', '', 'kaliop', 'txt xtxt txtx xt xtx ', '0671708312', 'e10adc3949ba59abbe56e057f20f883e', 'zoubir@mail.fr', '', '2014-08-01', '2014-08-01', 1, 0);
 
 -- --------------------------------------------------------
 

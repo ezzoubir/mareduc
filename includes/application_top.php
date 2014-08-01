@@ -213,6 +213,17 @@
 	
 	return $num;
   }
+  
+  function getCoupnByUserTotal($idMembre){
+		$sql='SELECT * from coupons cp 
+				  LEFT JOIN users_coupons usp 
+				  ON cp.id=usp.id_coupon 
+				  WHERE usp.id_membre="'.$idMembre.'"';
+				  
+			$req=mysql_query($sql);
+			$total = mysql_num_rows($req);
+	return $total;
+  }
   /*  /FONCTIONS GLOBALES */
   
   /* MODULES */

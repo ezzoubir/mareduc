@@ -8,7 +8,11 @@
                                     <img src="images/logo.png" alt="<?php echo META_TITLE; ?>">
                                 </a>
                             </h1>
-                            <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a>
+							<?php if(isset($_SESSION['id_membre'])) { ?>
+                            <a id="sys_head_login" class="btn btn-red type-login btn-login" href="#">Déconnexion</a>
+							<?php } else { ?>
+							<a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Connexion</a>
+							<?php } ?>
                             <nav class="main-nav">
                                 <ul id="main-menu" class="nav nav-horizontal clearfix">
                                     <li class="active">
@@ -19,6 +23,9 @@
                                     </li>
 									<li>
                                         <a href="marchands.html">Marchands</a>
+                                    </li>
+									<li>
+                                        <a href="catalogues.html">Catalogues</a>
                                     </li>
 									<!--li>
                                         <a href="collection.html">New Collection</a>
@@ -40,10 +47,12 @@
                                             <li><a href="brand-detail-5.html">Brand Detail 5</a></li>
                                         </ul>
                                     </li-->
+									<?php if(isset($_SESSION['id_membre'])) { ?>
                                     <li>
                                         <a href="my-coupon.html">Mes coupons</a>
-                                        <i class="icon iPickRed lbl-count"><span>12</span></i>
+                                        <i class="icon iPickRed lbl-count"><span><?php echo getCoupnByUserTotal($_SESSION['id_membre']); ?></span></i>
                                     </li>
+									<?php } ?>
                                 </ul>
                                 <a id="sys_btn_toogle_menu" class="btn-toogle-res-menu" href="#alternate-menu"></a>
                             </nav>
@@ -57,9 +66,9 @@
                         <div class="mod-register">
                             <h3 class="rs title-mod">Déjà membre ?<br/>Merci de vous connecter en utilisant le formulaire ci-dessous </h3>
                             <div class="wrap-form-reg clearfix">
-                                <form action="#">
+                                <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
                                     <div class="left-form">
-                                        <label class="wrap-txt" for="sys_email">
+                                        <label class="wrap-txt" for="">
                                             <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
 											<input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
                                         </label>
@@ -96,12 +105,12 @@ promotions from Coupons.com. Enter in an email and a password or sign up
                             <div class="wrap-form-reg clearfix">
                                 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
                                     <div class="left-form">
-										<label class="wrap-txt" for="sys_email_reg">
-											<input class="input-txt" id="sys_email_reg" placeholder="Raison social" type="text" name="FORM_SOCIETE" style="width:99%">
+										<label class="wrap-txt" for="sys_raison_reg">
+											<input class="input-txt" id="sys_raison_reg" placeholder="Raison social" type="text" name="FORM_SOCIETE" style="width:99%">
 										</label>
-                                        <label class="wrap-txt" for="sys_email_reg">
-                                            <input class="input-txt" id="sys_email_reg" placeholder="Nom & Prénom" type="text" name="FORM_NOM">
-                                            <input class="input-txt" id="sys_name_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
+                                        <label class="wrap-txt" for="">
+                                            <input class="input-txt" id="sys_nom_reg" placeholder="Nom & Prénom" type="text" name="FORM_NOM">
+                                            <input class="input-txt" id="sys_email_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
                                         </label>
                                         <label class="wrap-txt" for="sys_pass_reg">
                                             <input class="input-txt" id="sys_pass_reg" placeholder="password please!" type="password" name="FORM_PASSWORD">

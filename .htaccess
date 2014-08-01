@@ -11,6 +11,7 @@ RewriteRule ^mes-coupons.html$ index.php?language=fr&page=5
 RewriteRule ^commerciaux.html$ index.php?language=fr&page=7
 RewriteRule ^mentions.html$ index.php?language=fr&page=8
 RewriteRule ^contact.html$ index.php?language=fr&page=9
+RewriteRule ^catalogues.html$ index.php?language=fr&page=10
 
 
 #RewriteRule ^photos-(.*).html$ index.php?language=fr&page=5&id_album=$1

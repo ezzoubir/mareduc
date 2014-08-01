@@ -69,13 +69,16 @@
 										$sql='select * from marchands order by id desc limit 12';
 										$req=mysql_query($sql);
 										while($dtmch=mysql_fetch_assoc($req)){
+										
 									?>
 									<div class="brand-item grid_4 item marchands-<?php $rest = strtolower(substr($dtmch['marchand'], 0, 1));  echo $rest; ?>">
 										<div class="brand-content">
 											<div class="brand-logo">
 												<div class="wrap-img-logo">
 													<span class="ver_hold"></span>
-													<a href="marchand-<?php echo $dtmch['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></a>
+													<a href="marchand-<?php echo $dtmch['slug']; ?>.html" class="ver_container">
+														<img class="lazy" data-original="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>">
+													</a>
 												</div>
 											</div>
 										</div>

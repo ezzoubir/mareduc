@@ -63,7 +63,7 @@ else
 	
 					
               // on peut continuer
-              $sql='insert into '.PREFIXE_BDD.'membres (nom,societe,adresse,tel,email,password,date_inscription,statut)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_SOCIETE'].'","'.$_POST['FORM_ADRESSE'].'","'.$_POST['FORM_TEL'].'","'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.date('Y-m-d').'","'.$statut.'")';
+              $sql='insert into '.PREFIXE_BDD.'membres (nom,societe,adresse,tel,email,password,date_inscription,statut)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_SOCIETE'].'","'.$_POST['FORM_ADRESSE'].'","'.$_POST['FORM_TEL'].'","'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.date('Y-m-d').'","1")';
               mysql_query($sql);
 			
               // envoi email de confirmation
@@ -79,7 +79,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                   $message.='<br /><br />Merci de vous être enregistré sur Dealonline.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
 				  $message.='Identifiant : '.$_POST['FORM_EMAIL'];
 				  $message.='Mot de passe : '.$_POST['FORM_PASSWORD'];
-				  $message.='Cordialement,<br/>L`\'équipe Couponday.ma';
+				  $message.='Cordialement,<br/>L`\'équipe Groupromo.ma';
                   $message.='</div>';
                   $mail = new PHPmailer();
                   $mail->IsHTML(true);
@@ -91,11 +91,22 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                   $mail->Body=stripslashes($message);
                   $mail->Send();
               
-              
-              
-              
-              
-              header('LOCATION:index.php?language=fr&page=1&inscription=valide');
+				  // login
+				  $sql='select * from '.PREFIXE_BDD.'membres where email="'.$_POST['FORM_EMAIL'].'" and password="'.md5($_POST['FORM_PASSWORD']).'" '.$where_statut;
+				  $res=mysql_query($sql);
+				  if(mysql_num_rows($res)==1)
+				  {
+					  $ro=mysql_fetch_array($res);
+					  $_SESSION['id_membre']=$ro['id_membre'];
+					  if(isset($ro['privilege']))
+					  $_SESSION['privilege']=true;
+					  
+					  // on met à jour derniere conncection
+					  $sql='update  '.PREFIXE_BDD.'membres set date_login="'.date('Y-m-d').'" where id_membre="'.$_SESSION['id_membre'].'"';
+					  mysql_query($sql);
+					  
+					  header('LOCATION:mes-coupons.html');
+				  }
           }  
           else
           {

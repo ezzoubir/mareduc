@@ -25,7 +25,9 @@
                                         <div class="wrap-logo">
                                             <div class="center-img">
                                                 <span class="ver_hold"></span>
-                                                <a href="coupon-<?php echo $dtcp['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt<?php echo $dtcp['titre']; ?>"></a>
+                                                <a href="coupon-<?php echo $dtcp['slug']; ?>.html" class="ver_container">
+													<img class="lazy" data-original="images/photos/<?php echo $dtcp['logo']; ?>" alt<?php echo $dtcp['titre']; ?>">
+												</a>
                                             </div>
                                         </div>
                                     </div>

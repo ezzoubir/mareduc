@@ -4,7 +4,7 @@
 				  ON cp.id=usp.id_coupon 
 				  WHERE usp.id_membre="'.$_SESSION['id_membre'].'"';
 				  
-			$req=mysql_qurey($sql);
+			$req=mysql_query($sql);
 			$total = mysql_num_rows($req);
 		?>
 		<div class="top-area">
@@ -23,7 +23,7 @@
                         <h3 class="title-block">
                             <span class="wrap-tab clearfix">
                                 <span class="lbl-tab active">COUPONS (<?php echo $total; ?>)</span>
-                                <span class="lbl-tab">BRANDS (6)</span>
+                                <span class="lbl-tab">MARCHANDS (6)</span>
                             </span>
                         </h3>
                     </div>
