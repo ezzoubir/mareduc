@@ -6,18 +6,18 @@
                             <div class="company-info">
                                 <img src="images/logo-gray.png" alt="CouponDay">
                                 <p class="rs">Lorem ipsum dolor sit 
-amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
-tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
- minim veniam, quis nostrud</p>
+												amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+												tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+												 minim veniam, quis nostrud</p>
                                 <p class="rs">
-                                    1200 Balh Blah Avenue <br>
-                                    Hanoi, Vietnam 12137
+                                    Avenue Anfa N 256 Etage 5 <br>
+                                    Bureau 6 Casablanca
                                 </p>
                             </div>
                         </div>
                         <div class="grid_3">
                             <div class="block social-link">
-                                <h3 class="title-block">Follow us</h3>
+                                <h3 class="title-block">Suivez nous</h3>
                                 <div class="block-content">
                                     <ul class="rs">
                                         <li>
@@ -28,23 +28,24 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
                                             <i class="fa fa-twitter-square fa-2x"></i>
                                             <a href="#" target="_blank">Follow our Tweets</a>
                                         </li>
-                                        <li>
-                                            <i class="fa fa-pinterest-square fa-2x"></i>
-                                            <a href="#" target="_blank">Follow our Pin board</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div><!--end: Follow us -->
                         <div class="grid_3">
                             <div class="block intro-video">
-                                <h3 class="title-block">Intro Video</h3>
+                                <h3 class="title-block">Contactez nous</h3>
                                 <div class="block-content">
-                                    <div class="wrap-video" id="sys_wrap_video">
-                                        <div class="lightbox-video">
-                                                <a class="html5lightbox" href="http://player.vimeo.com/video/36932496" title=""><i class="btn-play"></i><img src="images/video-img.png" alt=""></a>     
-                                            </div>
-                                    </div>
+                                    <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
+										<label class="wrap-txt" for="">
+                                            <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_NAME">
+											<input class="input-txt" id="sys_pass" placeholder="Ville" type="text" name="FORM_VILLE">
+											<input class="input-txt" id="sys_pass" placeholder="Email" type="text" name="FORM_EMAIL">
+											<input class="input-txt" id="sys_pass" placeholder="Sujet" type="text" name="FORM_SUJET">
+											<textarea name="FORM_MSG" placeholder="Message"></textarea>
+											<button class="btn-flat gr btn-submit-reg" type="submit" name="CONTACT_FORM_ENVOYER">Connexion</button>
+                                        </label>
+									</form>
                                 </div>
                             </div>
                         </div><!--end: Intro Video -->

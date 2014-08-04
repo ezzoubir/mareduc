@@ -46,7 +46,7 @@
 											});
 										</script>
 									</div>
-									<a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le code</a>
+									<a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le coupon</a>
 								</div>
 								<i class="stick-lbl hot-sale"></i>
 							</div><!--end: .coupon-item -->

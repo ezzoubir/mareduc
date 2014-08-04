@@ -40,9 +40,14 @@
                         </div>
                     </div>
                     <div class="grid_5">
-                        <div class="save-price">Save <?php echo $dtcp['reduction']; ?> Off</div>
+                        <div class="save-price">Réduction de : <?php echo $dtcp['reduction']; ?></div>
                         <a href="#" class="brand-name"><?php echo $dtmch['marchand']; ?></a>
                         <div class="coupon-desc"><?php echo $dtcp['presentation']; ?></div>
+						<div class="coupon-desc">
+							<b>Adresse : <?php echo $dtmch['adresse']; ?></b><br/>
+							<b>Tél :</b> <?php echo $dtmch['tel']; ?><br/>
+							<b>Site :</b> <?php echo $dtmch['site']; ?><br/>
+						</div>
                         <div class="wrap-btn clearfix">
                             <div class="day-left">
 							<div class="countdown<?php echo $dtcp['id']; ?> styled"></div>
@@ -63,7 +68,7 @@
 										});
 									</script>
 							</div>
-                            <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
+                            <a class="btn btn-blue btn-take-coupon" href="#">Imprimer le coupon</a>
                         </div>
                         <div class="wrap-action clearfix">
                             <div class="left-vote">
@@ -73,7 +78,7 @@
                             </div>
                             <div class="right-social">
                                 Share now
-                                <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo BASE_URL.$_SERVER['REQUEST_URI']; ?>" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
@@ -106,52 +111,8 @@
                     </div>
                 </div><!--end: .mod-coupon-detail -->
                 <div class="mod-grp-coupon block clearfix">
-                    <div class="grid_12">
-                        <h3 class="title-block">
-                            Related coupons
-                        </h3>
-                    </div>
                     <div class="block-content list-coupon clearfix">
-						<?php
-							$sqc='select * from coupons';
-							$rec=mysql_query($sqc);
-							while($dtc2=mysql_fetch_array($rec)){
-						?>
-                        <div class="coupon-item grid_3">
-                            <div class="coupon-content">
-                                <div class="img-thumb-center">
-                                    <div class="wrap-img-thumb">
-                                        <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="$COUPON_TITLE"></a>
-                                    </div>
-                                </div>
-                                <div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
-                                <div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
-                                <div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
-                                <div class="time-left"><br/>
-									<div class="countdown<?php echo $dtc2['id']; ?> styled"></div>
-									<script type="text/javascript">
-									  $(function() {
-										<?php
-											$dt = explode('-',$dtc2['date_fin']);
-											$monthName = date("F", mktime(0, 0, 0, $dt[1], 10));
-										?>
-										var endDate = "<?php echo $monthName; ?> <?php echo $dt[2]; ?>, <?php echo $dt[0]; ?> 23:59:59";
-
-										$('.countdown<?php echo $dtc2['id']; ?>.styled').countdown({
-										  date: endDate,
-										  render: function(data) {
-											$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>jours</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>heures</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>secondes</span></div>");
-										  }
-										});
-										});
-									</script>
-								</div>
-                                <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
-                            </div>
-                            <i class="stick-lbl hot-sale"></i>
-                        </div><!--end: .coupon-item -->
-						<?php } ?>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.598032501732!2d-7.635176239085455!3d33.589784538628365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C+Maroc!5e0!3m2!1sfr!2sfr!4v1407169225429" width="100%" height="450" frameborder="0" style="border:0"></iframe><br/><br/>
                     </div>
                  </div><!--end block: Related coupons-->
             </div>

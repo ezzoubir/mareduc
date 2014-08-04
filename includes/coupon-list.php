@@ -61,7 +61,7 @@
                                                     <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
                                                 </span-->
                                             </div>
-                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">Voir le code</a>
+                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">Voir le coupon</a>
                                         </div>
                                     </div>
                                 </div><!--end: .coupons-code-item -->
