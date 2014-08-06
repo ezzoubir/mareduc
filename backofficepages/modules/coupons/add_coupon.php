@@ -38,6 +38,19 @@ function ProposePhoto($UploadingFile)
       else return false;
     } 
 	
+	 function GetNewCode()
+    {
+        $NbrChrs=6;
+        $list = "ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789";
+        mt_srand((double)microtime()*1000000);
+        $pass="";
+        while(strlen( $pass )< $NbrChrs ) 
+        {
+    			$pass .= $list[mt_rand(0, strlen($list)-1)];
+    		}
+    		return $pass;
+    }
+	
 	function ProposeFichier($UploadingFile)
 {
         $charge=false;
@@ -74,9 +87,9 @@ function ProposePhoto($UploadingFile)
 	@$uploadfile="Null";
 	}
 	$slug = strtolower(str_replace(" ", "-", $_POST['titre']));
-	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,reduction,id_ville,id_cat,id_marchand,date_debut,date_fin) 
+	$sql='insert into coupons (titre,slug,logo,presentation,tags,url,site,code,reduction,id_ville,id_cat,id_marchand,date_debut,date_fin) 
 			values 
-		  ("'.$_POST['titre'].'","'.$slug.'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'","'.$_POST['date_debut'].'","'.$_POST['date_fin'].'")';
+		  ("'.$_POST['titre'].'","'.$slug.'","'.$uploadphoto.'","'.$_POST['presentation'].'","'.$_POST['tags'].'","'.$_POST['url'].'","'.$_POST['site'].'","'.GetNewCode().'","'.$_POST['reduction'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['marchand'].'","'.$_POST['date_debut'].'","'.$_POST['date_fin'].'")';
 		  
 	mysql_query($sql);
 	

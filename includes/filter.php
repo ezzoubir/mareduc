@@ -3,7 +3,7 @@
                 <div class="container_grid clearfix">
                     <div class="grid_12">
                         <div class="lbl-search">
-                            <input class="txt-search" id="sys_txt_search" placeholder="Recherche" type="search">
+                            <input class="txt-search" id="sys_txt_search" placeholder="Code, Nom de produit" type="search">
                             <input class="btn-search" value="" type="submit">
                         </div>
                         <div class="select-cate">

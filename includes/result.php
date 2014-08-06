@@ -8,7 +8,7 @@
 			if($_POST['filter']==1) {
 							$cat = isset($_POST['catId']) && $_POST['catId'] !=0 ? ' AND id_cat="'.$_POST['catId'].'" ' : '';
 							$ville = isset($_POST['cityId']) && $_POST['cityId'] !=0 ? ' AND id_ville="'.$_POST['cityId'].'" ' : '';
-							$recherche = isset($_POST['search']) && $_POST['search'] !='' ? ' AND (titre like "%'.$_POST['search'].'%" OR presentation like "%'.$_POST['search'].'%")' : '';
+							$recherche = isset($_POST['search']) && $_POST['search'] !='' ? ' AND (titre like "%'.$_POST['search'].'%" OR presentation like "%'.$_POST['search'].'%" OR code = "'.$_POST['search'].'")' : '';
 							
 							$sqc='select * from coupons where 1=1'
 								.$cat

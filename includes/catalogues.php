@@ -20,24 +20,22 @@
 								$req=mysql_query($sql);
 								while($dtcp=mysql_fetch_assoc($req)){
 							?>
-                                <div class="coupons-code-item right-action flex">
-                                    <div class="brand-logo thumb-left">
-                                        <div class="wrap-logo">
-                                            <div class="center-img">
-                                                <span class="ver_hold"></span>
-                                                <a href="<?php echo BASE_URL.RepPhoto.$dtcp['catalogue']; ?>" class="ver_container">
-													<img src="images/photos/<?php echo $dtcp['photo']; ?>" alt<?php echo $dtcp['catalogue_titre']; ?>">
-												</a>
-                                            </div>
-                                        </div>
-                                    </div>
-									<div class="right-content flex-body">
-                                        <p class="rs save-price"><a href="#"><?php echo $dtcp['catalogue_titre']; ?></a></p>
-                                        <div class="bottom-action">
-                                            <a class="btn btn-blue btn-view-coupon" href="<?php echo BASE_URL.RepPhoto.$dtcp['catalogue']; ?>">Voir le catalogue</a>
-                                        </div>
-                                    </div>
-                                </div><!--end: .coupons-code-item -->
+                                <div class="coupon-item grid_3">
+								<div class="coupon-content">
+									<div class="img-thumb-center">
+										<div class="wrap-img-thumb">
+											<span class="ver_hold"></span>
+											<a href="<?php echo BASE_URL.RepPhoto.$dtcp['catalogue']; ?>" target="_blank" class="ver_container">
+													<img src="images/photos/<?php echo $dtcp['photo']; ?>" alt<?php echo $dtcp['catalogue_titre']; ?>"><br/>
+													<div class="coupon-brand"><?php echo $dtcp['catalogue_titre']; ?></div>
+											</a>
+										</div>
+									</div>
+									
+									<a class="btn btn-blue btn-view-coupon" href="<?php echo BASE_URL.RepPhoto.$dtcp['catalogue']; ?>">Voir le catalogue</a>
+								</div>
+								<i class="stick-lbl hot-sale"></i>
+							</div><!--end: .coupon-item -->
 							<?php } ?>
                             </div>
                         </div><!--end: .mod-coupons-code -->

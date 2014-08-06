@@ -45,7 +45,7 @@ function ProposePhoto($UploadingFile)
         $handle = new upload($UploadingFile);
         if ($handle->uploaded) 
         {
-            $FileName='video_'.$_POST['marchand'].'_'.time();
+            $FileName='catalogue_'.$_POST['marchand'].'_'.time();
             $Rep='../'.RepPhoto;
             $Rep2='../'.RepPhoto.'mins';
             $ext='.'.$handle->file_src_name_ext;
@@ -103,7 +103,7 @@ function ProposePhoto($UploadingFile)
 		tel="'.$_POST['tel'].'",
 		email="'.$_POST['email'].'",
 		adresse="'.$_POST['adresse'].'",
-		message="'.$_POST['message'].'",
+		map="'.$_POST['map'].'",
 		site="'.$_POST['site'].'",
 		reduction="'.$_POST['reduction'].'",
 		facebook="'.$_POST['facebook'].'",
@@ -172,7 +172,7 @@ function ProposePhoto($UploadingFile)
 		<tr><td>Adresse</td><td><input type="text" name="adresse" value="<?php echo $dr['adresse']; ?>" /></td></tr>
 		<tr><td>Web site</td><td><input type="text" name="site" value="<?php echo $dr['site']; ?>" /></td></tr>
 		<tr><td>Réduction</td><td><input type="text" name="reduction" value="<?php echo $dr['reduction']; ?>" /></td></tr>
-		<tr><td>Map</td><td><textarea name="message"><?php echo $dr['message']; ?></textarea></td></tr>
+		<tr><td>Map</td><td><textarea name="map"><?php echo $dr['map']; ?></textarea></td></tr>
 		<tr><td>Ville</td><td><select name="ville">
 		<option value=""></option>
 		<?php
@@ -195,8 +195,12 @@ function ProposePhoto($UploadingFile)
 		</select></td></tr>
 		<tr>
 			<td><b>Ajouter un catalogue</b></td>
-        <td><input type="file" name="photo">
+        <td>
+		Titre : <input type="text" name="catalogue_titre" value=""/>
+		<br/>
+		Catalogue : <input type="file" name="catalogue">
         <br/>
+		Photo : <input type="file" name="photo">
         <div style=" margin-top:25px;">
         <?php
           $sql='select * from catalogues where id_marchand="'.(int)$_GET['id'].'" order by id';

@@ -24,9 +24,9 @@
 											</a>
 										</div>
 									</div>
-									<div class="coupon-price">Réduction de: <?php echo $dtc2['reduction']; ?></div>
+									<div class="coupon-price">Réduction de: <span style="color:#F16262"><?php echo $dtc2['reduction']; ?></span></div>
 									<div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
-									<div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
+									<div class="coupon-desc"><?php echo truncate($dtc2['presentation'], 80, '...', true); ?> </div>
 									<div class="time-left"><br/>
 									<div class="countdown<?php echo $dtc2['id']; ?> styled"></div>
 										<script type="text/javascript">
@@ -46,7 +46,7 @@
 											});
 										</script>
 									</div>
-									<a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le coupon</a>
+									<a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le bon</a>
 								</div>
 								<i class="stick-lbl hot-sale"></i>
 							</div><!--end: .coupon-item -->

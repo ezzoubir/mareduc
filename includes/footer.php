@@ -5,10 +5,7 @@
                         <div class="grid_3">
                             <div class="company-info">
                                 <img src="images/logo-gray.png" alt="CouponDay">
-                                <p class="rs">Lorem ipsum dolor sit 
-												amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
-												tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-												 minim veniam, quis nostrud</p>
+                                <p class="rs">Toutes les promotions, les prospectus, les catalogues et les bonnes affaires proches de chez-vous.</p>
                                 <p class="rs">
                                     Avenue Anfa N 256 Etage 5 <br>
                                     Bureau 6 Casablanca
@@ -22,11 +19,11 @@
                                     <ul class="rs">
                                         <li>
                                             <i class="fa fa-facebook-square fa-2x"></i>
-                                            <a href="#" target="_blank">Our Facebook page</a>
+                                            <a href="#" target="_blank">Aimez nous sur Facebook</a>
                                         </li>
                                         <li>
                                             <i class="fa fa-twitter-square fa-2x"></i>
-                                            <a href="#" target="_blank">Follow our Tweets</a>
+                                            <a href="#" target="_blank">Suivez nous sur Twitter</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -42,7 +39,7 @@
 											<input class="input-txt" id="sys_pass" placeholder="Ville" type="text" name="FORM_VILLE">
 											<input class="input-txt" id="sys_pass" placeholder="Email" type="text" name="FORM_EMAIL">
 											<input class="input-txt" id="sys_pass" placeholder="Sujet" type="text" name="FORM_SUJET">
-											<textarea name="FORM_MSG" placeholder="Message"></textarea>
+											<textarea name="FORM_MESSAGE" placeholder="Message"></textarea>
 											<button class="btn-flat gr btn-submit-reg" type="submit" name="CONTACT_FORM_ENVOYER">Connexion</button>
                                         </label>
 									</form>
@@ -51,19 +48,19 @@
                         </div><!--end: Intro Video -->
                         <div class="grid_3">
                             <div class="block blog-recent">
-                                <h3 class="title-block">Latest blog</h3>
+                                <h3 class="title-block">Dernièrs catalogues</h3>
                                 <div class="block-content">
                                     <div class="entry-item flex">
                                         <a class="thumb-left" href="#">
                                             <img src="images/04-15.jpg" alt="$TITLE">
                                         </a>
-                                        <div class="flex-body"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing eli</a></div>
+                                        <div class="flex-body"><a href="#">Sport Plus</a></div>
                                     </div>
                                     <div class="entry-item flex">
                                         <a class="thumb-left" href="#">
                                             <img src="images/04-16.jpg" alt="$TITLE">
                                         </a>
-                                        <div class="flex-body"><a href="#">Ut wisi enim ad minim veniam, quis nostrud</a></div>
+                                        <div class="flex-body"><a href="#">Piel de toro</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +74,7 @@
                         <div class="left-link">
                             <a href="accueil.html">Accueil</a>
                             <a href="mentions.html">Mentions légales</a>
-                            <a href="commerciaux.html">Commerciaux</a>
+                            <a href="commerciaux.html">Demande un devis</a>
                             <a href="contact.html">Contact</a>
                         </div>
                         <div class="copyright">

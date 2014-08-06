@@ -15,8 +15,10 @@ else
   
 }
   
-  if(isset($_GET['logoff']))
+  if(isset($_GET['logoff'])) {
     unset($_SESSION['id_membre']);
+	header('LOCATION:accueil.html');
+ }
 
   if(isset($_POST['LOGIN_PASSWORD_FORM_ENVOYER']))
   {

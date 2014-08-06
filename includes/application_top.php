@@ -147,6 +147,24 @@
         return stripslashes($row['texte']);
 
   }
+  
+  
+
+function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space = false)
+{
+	$max_length -= strlen($replacement);
+	$string_length = strlen($string);
+	
+	if($string_length <= $max_length)
+		return $string;
+	
+	if( $trunc_at_space && ($space_position = strrpos($string, ' ', $max_length-$string_length)) )
+		$max_length = $space_position;
+	
+	return substr_replace($string, $replacement, $max_length);
+}
+
+
 
  function getPageSuppTitre($id)
   {
@@ -429,6 +447,7 @@
   }
   if(isset($_POST['CONTACT_FORM_ENVOYER']))
   {
+  
       // formulaire de contact traitement
         include 'class/phpmailer.class.inc.php';
         
@@ -436,13 +455,9 @@
           $message='<div>';
         else
         $message='<div dir="rtl">';
-        $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
-         Société : '.$_POST['FORM_COMPANY'].'<br />
-         Téléphone : '.$_POST['FORM_TEL'].'<br />
-                 '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
-                 '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
+        $message.=$_POST['FORM_NAME'].'<br /><br />
+                 '.FORM_SUJET. ' : '.$_POST['FORM_SUJET'].'<br />
                  '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
-                 
                  '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
                  '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
         $message.='</div>';
@@ -451,10 +466,10 @@
         $mail = new PHPmailer();
         $mail->IsHTML(true);
         $mail->From=EMAIL_EXP;
-        $mail->FromName=stripslashes($_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM']);
+        $mail->FromName=stripslashes($_POST['FORM_NAME']);
         
         
-        $mail->Subject=stripslashes('[Message de :]['.$_POST['FORM_PRENOM'].']');
+        $mail->Subject=stripslashes('[Message de :]['.$_POST['FORM_NAME'].']');
         
         $mail->AddReplyTo($_POST['FORM_EMAIL']);//$EmailExp
         $mail->AddAddress(EMAIL_ADMIN);
@@ -468,7 +483,7 @@
         //unset($message);
         
         //echo EMAIL_ADMIN.'<br />'.$message;
-        header('LOCATION:'.$_POST['URL_SRC'].'');
+        $msg='<script>alert("Message a été envoyé avec succès");</script>';
       
   }
     if(isset($_POST['CLIENT_FORM_ENVOYER']))

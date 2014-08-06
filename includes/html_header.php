@@ -35,7 +35,7 @@ if(isset($header_article_facebook))
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-dark.css">
     <link rel="stylesheet" href="css/style-gray.css">
-
+	<link rel="stylesheet" href="css/lightbox.css">
 
     <!--[if IE 9]>
     <link rel="stylesheet" href="css/ie9.css"/>
@@ -58,6 +58,7 @@ if(isset($header_article_facebook))
 <script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/jquery.countdown.js" type="text/javascript"></script>
 <script src="js/jquery.lazyload.js" type="text/javascript"></script>
+<script src="js/lightbox.min.js"></script>
 </head>
 <body class="gray"><!--<div class="alert_w_p_u"></div>-->
 <div class="container-page">
@@ -77,7 +78,9 @@ if(isset($header_article_facebook))
 		} elseif($_GET['page']==5) 
 			{ include 'my-coupon.php';
 		}elseif($_GET['page']==6) 
-			{ include 'brand-list.php'; } 	
+			{ include 'brand-list.php'; 
+		} elseif($_GET['page']==10) 
+			{ include 'catalogues.php'; } 	
 		?>
         <?php include 'footer.php'; ?>
     </div>

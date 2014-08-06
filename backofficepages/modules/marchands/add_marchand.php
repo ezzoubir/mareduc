@@ -74,9 +74,9 @@ function ProposePhoto($UploadingFile)
 	$uploadfile="Null";
 	}
 	$slug = strtolower(str_replace(" ", "-", $_POST['marchand']));
-	$sql='insert into marchands (marchand,slug,logo,presentation,fichier,url,responsable,responsable_email,responsable_mobile,tel,email,reduction,adresse,site,id_ville,id_cat,message,facebook,twitter,youtube,pinterest,linkedin,date_creation) 
+	$sql='insert into marchands (marchand,slug,logo,presentation,fichier,url,responsable,responsable_email,responsable_mobile,tel,email,reduction,map,adresse,site,id_ville,id_cat,facebook,twitter,youtube,pinterest,linkedin,date_creation) 
 			values 
-		  ("'.$_POST['marchand'].'","'.$slug.'","'.$uploadlogo.'","'.$_POST['presentation'].'","'.$uploadfile.'","'.$_POST['url'].'","'.$_POST['responsable'].'","'.$_POST['responsable_email'].'","'.$_POST['responsable_mobile'].'","'.$_POST['tel'].'","'.$_POST['email'].'","'.$_POST['reduction'].'","'.$_POST['adresse'].'","'.$_POST['site'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['message'].'","'.$_POST['facebook'].'","'.$_POST['twitter'].'","'.$_POST['youtube'].'","'.$_POST['pinterest'].'","'.$_POST['linkedin'].'","'.date('Y-m-d').'")';
+		  ("'.$_POST['marchand'].'","'.$slug.'","'.$uploadlogo.'","'.$_POST['presentation'].'","'.$uploadfile.'","'.$_POST['url'].'","'.$_POST['responsable'].'","'.$_POST['responsable_email'].'","'.$_POST['responsable_mobile'].'","'.$_POST['tel'].'","'.$_POST['email'].'","'.$_POST['reduction'].'","'.$_POST['map'].'","'.$_POST['adresse'].'","'.$_POST['site'].'","'.$_POST['ville'].'","'.$_POST['cat'].'","'.$_POST['facebook'].'","'.$_POST['twitter'].'","'.$_POST['youtube'].'","'.$_POST['pinterest'].'","'.$_POST['linkedin'].'","'.date('Y-m-d').'")';
 		  
 	mysql_query($sql);
 	
@@ -99,7 +99,7 @@ function ProposePhoto($UploadingFile)
 		<tr><td>Adresse</td><td><input type="text" name="adresse" value="" /></td></tr>
 		<tr><td>Web site</td><td><input type="text" name="site" value="" /></td></tr>		
 		<tr><td>Réduction</td><td><input type="text" name="reduction" value="" /></td></tr>
-		<tr><td>Map</td><td><textarea name="message"></textarea></td></tr>
+		<tr><td>Map</td><td><textarea name="map"></textarea></td></tr>
 		<tr><td>Ville</td><td><select name="ville">
 		<option value=""></option>
 		<?php

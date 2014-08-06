@@ -11,7 +11,7 @@
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
-                        <h2 class="page-title">Coupons</h2>
+                        <h2 class="page-title">Bons</h2>
                     </div>
                 </div>
             </div>
@@ -22,9 +22,9 @@
                     <div class="grid_12">
                         <a href="#">Accueil</a>
                         <span>&gt;</span>
-                        <a href="#">Coupons</a>
+                        <a href="#">Bons</a>
                         <span>&gt;</span>
-                        <a href="#"><?php echo $dtcp['titre'].' : '.$dtcp['reduction']; ?> off</a>
+                        <a href="#"><?php echo $dtcp['titre'].' : '.$dtcp['reduction']; ?> </a>
                     </div>
                 </div><!--end: .mod-breadcrumb -->
                 <div class="mod-coupon-detail clearfix">
@@ -33,20 +33,20 @@
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt="<?php echo $dtcp['titre']; ?>"></a>
+									<a href="images/photos/<?php echo $dtcp['logo']; ?>" data-lightbox="<?php echo $dtcp['titre']; ?>" data-title="<?php echo $dtcp['titre']; ?>"><img src="images/photos/<?php echo $dtcp['logo']; ?>" alt="<?php echo $dtcp['titre']; ?>"></a>
                                 </div>
                             </div>
                             <i class="stick-lbl hot-sale"></i>
                         </div>
                     </div>
                     <div class="grid_5">
-                        <div class="save-price">Réduction de : <?php echo $dtcp['reduction']; ?></div>
+                        <div class="save-price">Réduction de : <span style="color:#F16262"><?php echo $dtcp['reduction']; ?></span></div>
                         <a href="#" class="brand-name"><?php echo $dtmch['marchand']; ?></a>
                         <div class="coupon-desc"><?php echo $dtcp['presentation']; ?></div>
-						<div class="coupon-desc">
-							<b>Adresse : <?php echo $dtmch['adresse']; ?></b><br/>
-							<b>Tél :</b> <?php echo $dtmch['tel']; ?><br/>
-							<b>Site :</b> <?php echo $dtmch['site']; ?><br/>
+						<div class="coupon-desc" style="font-size:14px">
+							<b><span style="color:#00B5F4">Adresse :</span></b> <?php echo $dtmch['adresse']; ?><br/>
+							<b><span style="color:#00B5F4">Tél :</span></b> <?php echo $dtmch['tel']; ?><br/>
+							<b><span style="color:#00B5F4">Site :</span></b> <?php echo $dtmch['site']; ?><br/>
 						</div>
                         <div class="wrap-btn clearfix">
                             <div class="day-left">
@@ -68,7 +68,7 @@
 										});
 									</script>
 							</div>
-                            <a class="btn btn-blue btn-take-coupon" href="#">Imprimer le coupon</a>
+                            <a class="btn btn-blue btn-take-coupon" href="#">Imprimer le bon</a>
                         </div>
                         <div class="wrap-action clearfix">
                             <div class="left-vote">
@@ -77,21 +77,12 @@
                                 <span class="lbl-vote">2 <i class="icon iSubVote"></i></span-->
                             </div>
                             <div class="right-social">
-                                Share now
+                                Partagez sur
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo BASE_URL.$_SERVER['REQUEST_URI']; ?>" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-square fa-2x"></i></a>
                                 <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
                             </div>
-                        </div>
-                        <div class="wrap-tag">
-                            <span class="btn btn-gray type-tag tag-lbl">Tag</span>
-							<?php 
-								$tags = explode('-',$dtcp['tags']);
-								foreach($tags as $tag) {
-									echo '<a class="btn btn-gray type-tag" href="#">'.$tag.'</a>';
-								}
-							?>
                         </div>
                     </div>
                     <div class="grid_3">
@@ -106,7 +97,7 @@
 							?>
 							Followers</div>
                             <div class="brand-desc ta-l"><?php echo $dtmch['presentation']; ?></div>
-                            <a class="link-brand" href="marchand-<?php echo $dtmch['slug']; ?>.html">View Brand</a>
+                            <a class="link-brand" href="marchand-<?php echo $dtmch['slug']; ?>.html">Voir le marchand</a>
                         </div>
                     </div>
                 </div><!--end: .mod-coupon-detail -->

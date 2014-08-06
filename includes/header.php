@@ -9,7 +9,7 @@
                                 </a>
                             </h1>
 							<?php if(isset($_SESSION['id_membre'])) { ?>
-                            <a id="sys_head_login" class="btn btn-red type-login btn-login" href="#">Déconnexion</a>
+                            <a id="" class="btn btn-red type-login btn-login" href="deconnexion.html">Déconnexion</a>
 							<?php } else { ?>
 							<a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Connexion</a>
 							<?php } ?>
@@ -77,13 +77,13 @@
                                         </label>
                                         <div class="wrap-login-btn">
                                             <button class="btn-flat gr btn-submit-reg" type="submit" name="LOGIN_FORM_ENVOYER">Connexion</button>
-                                            <div class="sep-connect">
+                                            <!--div class="sep-connect">
                                                 <span>Ou</span>
                                             </div>
                                             <div class="grp-connect">
                                                 <a class="btn-flat fb" href="#">Facebook</a>
                                                 <a class="btn-flat gg" href="#">Google</a>
-                                            </div>
+                                            </div-->
                                         </div>
                                     </div>
                                     <div class="right-create-acc">
@@ -97,11 +97,9 @@
                             </div>
                         </div><!--end: Login panel -->
                         <div class="mod-register">
-                            <h3 class="rs title-mod">Hello pretty! Welcome to Couponday.com</h3>
-                            <div class="desc-reg">Sign up for free and 
-get exclusive access to members-only savings, rewards and special 
-promotions from Coupons.com. Enter in an email and a password or sign up
- with Facebook.</div>
+                            <h3 class="rs title-mod">Bienvenue à Groupromo.ma</h3>
+                            <div class="desc-reg">Inscrivez-vous gratuitement et
+obtenir un accès exclusif aux promotions de Groupromo.ma. Entrez un e-mail et un mot de passe.</div>
                             <div class="wrap-form-reg clearfix">
                                 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
                                     <div class="left-form">
@@ -121,20 +119,20 @@ promotions from Coupons.com. Enter in an email and a password or sign up
                                             <input class="input-txt" id="sys_tel" placeholder="Tél" type="text" name="FORM_TEL">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news_reg">
-                                            <input id="sys_chk_news_reg" class="input-chk" name="FORM_NEWSLETTER" type="checkbox"> Send me the weekly Couponday.com’s offers.
+                                            <input id="sys_chk_news_reg" class="input-chk" name="FORM_NEWSLETTER" type="checkbox"> Envoyez-moi les offres spéciales de Groupromo.ma.
                                             <i class="icon iUncheck"></i>
                                         </label>
                                     </div>
                                     <div class="right-connect">
-                                        <button class="btn-flat yellow btn-submit-reg" type="submit" name="ESPACE_MEMBRE_FORM_INSCRIPTION">Create an account</button>
-                                        <div class="sep-connect">
+                                        <button class="btn-flat yellow btn-submit-reg" type="submit" name="ESPACE_MEMBRE_FORM_INSCRIPTION">Créer un compte</button>
+                                        <!--div class="sep-connect">
                                             <span>Or</span>
                                         </div>
                                         <div class="grp-connect">
                                             <p class="rs">Sign up using your account on:</p>
                                             <a class="btn-flat fb" href="#">Facebook</a>
                                             <a class="btn-flat gg" href="#">Google</a>
-                                        </div>
+                                        </div-->
                                     </div>
                                 </form>
                             </div>
