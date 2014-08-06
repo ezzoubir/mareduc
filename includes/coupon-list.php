@@ -80,7 +80,7 @@
                     </div>
                     <div class="grid_4 sidebar">
                         <div class="mod-list-store block">
-                            <h3 class="title-block">Popular store</h3>
+                            <h3 class="title-block">Marchands Populaires</h3>
                             <div class="block-content">
                                 <div class="wrap-list-store clearfix">
 								<?php	
@@ -101,24 +101,7 @@
                             </div>
                         </div><!--end: .mod-list-store -->
                         <div class="mod-ads"><a href="#"><img src="images/04-17.jpg" alt="$NAME"></a></div>
-                        <div class="mod-popular-tag block">
-                            <h3 class="title-block">Popular Tag</h3>
-                            <div class="block-content">
-							<?php
-								$sql='select tags from coupons';
-								$req=mysql_query($sql);
-								while($data=mysql_fetch_array($req)){
-									$tagscp[] = $data['tags'];
-								}
-								foreach($tagscp as $tag) {
-									$tags = explode('-',$tag);
-									foreach($tags as $tag) {
-										echo '<span class="btn btn-gray type-tag" data-value="'.$tag.'">'.$tag.'</span>';
-									}
-								}
-							?>
-                            </div>
-                        </div>
+                        <div class="mod-ads"><a href="#"><img src="images/04-17.jpg" alt="$NAME"></a></div>
                     </div>
                 </div>
             </div>

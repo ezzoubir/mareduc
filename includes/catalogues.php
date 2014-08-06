@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        <?php include 'filter.php'; ?>
+        <?php //include 'filter.php'; ?>
         <div class="grid_frame page-content">
             <div class="container_grid">
                 <div class="layout-2cols clearfix">
