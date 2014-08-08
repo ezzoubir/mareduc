@@ -27,6 +27,9 @@
 									<li>
                                         <a href="catalogues.html">Catalogues</a>
                                     </li>
+									<li>
+                                        <a class="try" id="try-3" href="#" title="">Contact</a>
+                                    </li>
 									<!--li>
                                         <a href="collection.html">New Collection</a>
                                     </li-->

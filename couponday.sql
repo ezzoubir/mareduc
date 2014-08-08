@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 01 Août 2014 à 14:09
+-- Généré le: Ven 08 Août 2014 à 14:17
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -23,6 +23,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `cartes`
+--
+
+CREATE TABLE IF NOT EXISTS `cartes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `tel` varchar(50) NOT NULL,
+  `adresse` text NOT NULL,
+  `email` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `catalogues`
 --
 
@@ -33,7 +49,14 @@ CREATE TABLE IF NOT EXISTS `catalogues` (
   `catalogue` text NOT NULL,
   `photo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `catalogues`
+--
+
+INSERT INTO `catalogues` (`id`, `catalogue_titre`, `id_marchand`, `catalogue`, `photo`) VALUES
+(1, 'catalogue test', 2, 'video_Target_1407317622.pdf', 'logo_marchand_1407317622.jpg');
 
 -- --------------------------------------------------------
 
@@ -613,7 +636,7 @@ CREATE TABLE IF NOT EXISTS `cms_v2_membres` (
 --
 
 INSERT INTO `cms_v2_membres` (`id_membre`, `login`, `nom`, `prenom`, `societe`, `adresse`, `tel`, `password`, `email`, `language`, `date_inscription`, `date_login`, `statut`, `privilege`) VALUES
-(24, '', 'ezzoubir didro', '', 'kaliop', 'txt xtxt txtx xt xtx ', '0671708312', 'e10adc3949ba59abbe56e057f20f883e', 'zoubir@mail.fr', '', '2014-08-01', '2014-08-01', 1, 0);
+(24, '', 'ezzoubir didro', '', 'kaliop', 'txt xtxt txtx xt xtx ', '0671708312', 'e10adc3949ba59abbe56e057f20f883e', 'zoubir@mail.fr', '', '2014-08-01', '2014-08-06', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1149,6 +1172,7 @@ CREATE TABLE IF NOT EXISTS `coupons` (
   `id_ville` int(11) NOT NULL,
   `id_cat` int(11) NOT NULL,
   `reduction` varchar(10) NOT NULL,
+  `code` varchar(30) NOT NULL,
   `statut` int(11) NOT NULL,
   `date_debut` date NOT NULL,
   `date_fin` date NOT NULL,
@@ -1160,9 +1184,9 @@ CREATE TABLE IF NOT EXISTS `coupons` (
 -- Contenu de la table `coupons`
 --
 
-INSERT INTO `coupons` (`id`, `titre`, `slug`, `site`, `url`, `id_marchand`, `logo`, `presentation`, `id_ville`, `id_cat`, `reduction`, `statut`, `date_debut`, `date_fin`, `tags`) VALUES
-(1, 'Walmart', 'walmart', '', '', '1', 'logo_1405814614.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 9, '-10%', 1, '2014-06-05', '2014-08-25', 'chocolat - gateaux - enfants'),
-(2, 'chekolip', 'chekolip', '', '', '1', 'logo_1405814863.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 12, '-5%', 1, '2014-07-01', '2014-09-10', 'chocolat - bébé - enfants - cakes');
+INSERT INTO `coupons` (`id`, `titre`, `slug`, `site`, `url`, `id_marchand`, `logo`, `presentation`, `id_ville`, `id_cat`, `reduction`, `code`, `statut`, `date_debut`, `date_fin`, `tags`) VALUES
+(1, 'Walmart', 'walmart', '', '', '1', 'logo_1405814614.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis metus non nunc iaculis dapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non faucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed vestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in placerat nibh adipiscing ut.', 9, 9, '-10%', '', 1, '2014-06-05', '2014-08-25', 'chocolat - gateaux - enfants'),
+(2, 'chekolip', 'chekolip', '', '', '1', 'logo_1405814863.jpg', 'Find Parts for All Major Brands at Sears PartsDirect ', 9, 12, '-5%', '', 1, '2014-07-01', '2014-09-10', 'chocolat - bébé - enfants - cakes');
 
 -- --------------------------------------------------------
 
@@ -1198,6 +1222,22 @@ CREATE TABLE IF NOT EXISTS `delegues` (
   `email` varchar(100) NOT NULL,
   `tel` varchar(60) NOT NULL,
   `id_ville` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `devis`
+--
+
+CREATE TABLE IF NOT EXISTS `devis` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `tel` varchar(100) NOT NULL,
+  `sujet` varchar(200) NOT NULL,
+  `message` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -1311,6 +1351,7 @@ CREATE TABLE IF NOT EXISTS `marchands` (
   `pinterest` varchar(256) NOT NULL,
   `linkedin` varchar(256) NOT NULL,
   `date_creation` date NOT NULL,
+  `map` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
@@ -1318,9 +1359,9 @@ CREATE TABLE IF NOT EXISTS `marchands` (
 -- Contenu de la table `marchands`
 --
 
-INSERT INTO `marchands` (`id`, `fichier`, `url`, `marchand`, `slug`, `logo`, `presentation`, `responsable`, `responsable_email`, `responsable_mobile`, `tel`, `email`, `adresse`, `site`, `id_ville`, `id_cat`, `message`, `reduction`, `statut`, `facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `date_creation`) VALUES
-(1, 'Null', '', 'Lindt', 'lindt', 'logo_1405813823.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'Kamal Amine', 'test@test.td', '0661094199', '0537680888', 'assurances.daraz@sahamassurance.com', 'txt txt txt txt txt txt txt', 'www.fff.ef', 9, 5, '', '-30%', 1, '', '', '', '', '', '2014-07-20'),
-(2, 'Null', '', 'Target', 'target', 'logo_1405813916.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'MALEK Lamia', 'test@target.fr', '0669565656', '0644327630', 'moonoptic@gmail.com', 'txt txt txt txt txt txt txt', 'www.target.com', 9, 12, '', '-15%', 1, '', '', '', '', '', '2014-07-20');
+INSERT INTO `marchands` (`id`, `fichier`, `url`, `marchand`, `slug`, `logo`, `presentation`, `responsable`, `responsable_email`, `responsable_mobile`, `tel`, `email`, `adresse`, `site`, `id_ville`, `id_cat`, `message`, `reduction`, `statut`, `facebook`, `twitter`, `youtube`, `pinterest`, `linkedin`, `date_creation`, `map`) VALUES
+(1, 'Null', '', 'Lindt', 'lindt', 'logo_1405813823.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'Kamal Amine', 'test@test.td', '0661094199', '0537680888', 'assurances.daraz@sahamassurance.com', 'txt txt txt txt txt txt txt', 'www.fff.ef', 9, 5, '', '-30%', 1, '', '', '', '', '', '2014-07-20', ''),
+(2, 'Null', '', 'Target', 'target', 'logo_1405813916.jpg', 'Lorem ipsum dolor \r\nsit amet, consectetur adipiscing elit. In quis metus non nunc iaculis \r\ndapibus. Nullam tempus accumsan metus vitae facilisis. Nullam non \r\nfaucibus nisi, nec auctor neque. Ut consequat consequat purus. Sed \r\nvestivbulum viverra nulla vel fermentum. Fusce luctus ultrices lorem, in\r\n placerat nibh adipiscing ut.', 'MALEK Lamia', 'test@target.fr', '0669565656', '0644327630', 'moonoptic@gmail.com', 'txt txt txt txt txt txt txt', 'www.target.com', 9, 12, '', '-15%', 1, '', '', '', '', '', '2014-07-20', '');
 
 -- --------------------------------------------------------
 

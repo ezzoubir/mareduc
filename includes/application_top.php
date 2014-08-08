@@ -403,86 +403,101 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
 
   }
  
-  if(isset($_POST['RESERVATION_FORM_ENVOYER']))
+  if(isset($_POST['sign_carte']))
   {
     // formulaire de contact traitement
         include 'class/phpmailer.class.inc.php';
         
-        if($language!='ar')
-          $message='<div>';
-        else
-        $message='<div dir="rtl">';
-        /*$message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
-                 '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
-                 '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
-                 '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
-                 '.FORM_PAYS. ' : '.$_POST['FORM_PAYS'].'<br />
-                 '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
-                 '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
-        $message.='</div>';*/
-        $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
-                
-                 '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
-                 Tel  : '.$_POST['FORM_TEL'].'<br />
-                 Nombre de personnes  : '.$_POST['FORM_NBR'].'<br />
-                 Date  : '.$_POST['FORM_DATE'].'<br />
-                 Heure  : '.$_POST['FORM_HEURE'].'<br />
-                 '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
-        $message.='</div>';
+		$sql='insert into cartes (nom,prenom,adresse,tel,email) values ("'.$_POST['carte_nom'].'","'.$_POST['carte_prenom'].'","'.$_POST['carte_adresse'].'","'.$_POST['carte_tel'].'","'.$_POST['carte_email'].'")';
+		mysql_query($sql);
+		
+        // $message='<div>';
+        // $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
+                 // '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
+                 // '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
+                 // '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
+                 // '.FORM_PAYS. ' : '.$_POST['FORM_PAYS'].'<br />
+                 // '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
+                 // '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
+        // $message.='</div>';
+
         $mail = new PHPmailer();
         $mail->IsHTML(true);
         $mail->From=EMAIL_EXP;
-        $mail->FromName=stripslashes($_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM']);
-        $mail->Subject=stripslashes('[CONTACT]['.$language.']['.BASE_URL.']');
-        $mail->AddReplyTo($_POST['FORM_EMAIL']);//$EmailExp
+        $mail->FromName=stripslashes($_POST['carte_nom'].' '.$_POST['carte_prenom']);
+        $mail->Subject=stripslashes('[Demande de carte]['.BASE_URL.']');
+        $mail->AddReplyTo($_POST['carte_email']);//$EmailExp
         $mail->AddAddress(EMAIL_ADMIN);
         if(EMAIL_ADMIN2!='')
           $mail->AddAddress(EMAIL_ADMIN2);
         $mail->Body=stripslashes($message);
         $mail->Send();
         
-         header('LOCATION:'.$_POST['URL_SRC'].'');
+        $msg='<script>alert("Message a été envoyé avec succès");</script>';
   
   
   }
+  
+  if(isset($_POST['sign_devis']))
+  {
+    // formulaire de contact traitement
+        include 'class/phpmailer.class.inc.php';
+        
+		$sql='insert into devis (nom,email,tel,sujet,message) values ("'.$_POST['devis_nom'].'","'.$_POST['devis_email'].'","'.$_POST['devis_tel'].'","'.$_POST['devis_sujet'].'","'.$_POST['devis_msg'].'")';
+		mysql_query($sql);
+		
+        // $message='<div>';
+        // $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
+                 // '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
+                 // '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
+                 // '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
+                 // '.FORM_PAYS. ' : '.$_POST['FORM_PAYS'].'<br />
+                 // '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
+                 // '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
+        // $message.='</div>';
+
+        $mail = new PHPmailer();
+        $mail->IsHTML(true);
+        $mail->From=EMAIL_EXP;
+        $mail->FromName=stripslashes($_POST['devis_nom']);
+        $mail->Subject=stripslashes('[Demande de devis]['.BASE_URL.']');
+        $mail->AddReplyTo($_POST['devis_email']);//$EmailExp
+        $mail->AddAddress(EMAIL_ADMIN);
+        if(EMAIL_ADMIN2!='')
+          $mail->AddAddress(EMAIL_ADMIN2);
+        $mail->Body=stripslashes($message);
+        $mail->Send();
+        
+        $msg='<script>alert("Message a été envoyé avec succès");</script>';
+  
+  
+  }
+  
   if(isset($_POST['CONTACT_FORM_ENVOYER']))
   {
   
       // formulaire de contact traitement
         include 'class/phpmailer.class.inc.php';
-        
-        if($language!='ar')
-          $message='<div>';
-        else
-        $message='<div dir="rtl">';
+
+        $message='<div>';
         $message.=$_POST['FORM_NAME'].'<br /><br />
                  '.FORM_SUJET. ' : '.$_POST['FORM_SUJET'].'<br />
                  '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
                  '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
                  '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
         $message.='</div>';
-        
-        
         $mail = new PHPmailer();
         $mail->IsHTML(true);
         $mail->From=EMAIL_EXP;
         $mail->FromName=stripslashes($_POST['FORM_NAME']);
-        
-        
-        $mail->Subject=stripslashes('[Message de :]['.$_POST['FORM_NAME'].']');
-        
+        $mail->Subject=stripslashes('[Message de :]['.$_POST['FORM_NAME'].']');   
         $mail->AddReplyTo($_POST['FORM_EMAIL']);//$EmailExp
         $mail->AddAddress(EMAIL_ADMIN);
         if(EMAIL_ADMIN2!='')
           $mail->AddAddress(EMAIL_ADMIN2);
         $mail->Body=stripslashes($message);
         $mail->Send();
-       
-        
-        
-        //unset($message);
-        
-        //echo EMAIL_ADMIN.'<br />'.$message;
+
         $msg='<script>alert("Message a été envoyé avec succès");</script>';
       
   }

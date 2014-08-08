@@ -35,10 +35,10 @@
                                 <div class="block-content">
                                     <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 										<label class="wrap-txt" for="">
-                                            <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_NAME">
-											<input class="input-txt" id="sys_pass" placeholder="Ville" type="text" name="FORM_VILLE">
-											<input class="input-txt" id="sys_pass" placeholder="Email" type="text" name="FORM_EMAIL">
-											<input class="input-txt" id="sys_pass" placeholder="Sujet" type="text" name="FORM_SUJET">
+                                            <input class="input-txt" id="sys_nom" placeholder="Nom é Prenom" type="text" name="FORM_NAME">
+											<input class="input-txt" id="sys_ville" placeholder="Ville" type="text" name="FORM_VILLE">
+											<input class="input-txt" id="sys_email" placeholder="Email" type="text" name="FORM_EMAIL">
+											<input class="input-txt" id="sys_sujet" placeholder="Sujet" type="text" name="FORM_SUJET">
 											<textarea name="FORM_MESSAGE" placeholder="Message"></textarea>
 											<button class="btn-flat gr btn-submit-reg" type="submit" name="CONTACT_FORM_ENVOYER">Connexion</button>
                                         </label>
@@ -48,19 +48,12 @@
                         </div><!--end: Intro Video -->
                         <div class="grid_3">
                             <div class="block blog-recent">
-                                <h3 class="title-block">Dernièrs catalogues</h3>
+                                <h3 class="title-block">la Carte Groupromo</h3>
                                 <div class="block-content">
                                     <div class="entry-item flex">
-                                        <a class="thumb-left" href="#">
-                                            <img src="images/04-15.jpg" alt="$TITLE">
+                                        <a class="try" id="try-1" href="#" title="">
+                                            <img src="images/carte.png" alt="carte groupormo" style="width:245px">
                                         </a>
-                                        <div class="flex-body"><a href="#">Sport Plus</a></div>
-                                    </div>
-                                    <div class="entry-item flex">
-                                        <a class="thumb-left" href="#">
-                                            <img src="images/04-16.jpg" alt="$TITLE">
-                                        </a>
-                                        <div class="flex-body"><a href="#">Piel de toro</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -74,8 +67,8 @@
                         <div class="left-link">
                             <a href="accueil.html">Accueil</a>
                             <a href="mentions.html">Mentions légales</a>
-                            <a href="commerciaux.html">Demande un devis</a>
-                            <a href="contact.html">Contact</a>
+                            <a class="try" id="try-2" href="#" title="">Demande un devis</a>
+                            <a class="try" id="try-4" href="#" title="">Contact</a>
                         </div>
                         <div class="copyright">
                             www.groupromo.ma Copyright © 2014 by INTELLIGENCIA
