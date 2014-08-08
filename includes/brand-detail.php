@@ -75,7 +75,7 @@
                                                 <a href="coupon-<?php echo $dtc2['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
                                             </div>
                                         </div>
-                                        <div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
+                                        <div class="coupon-price">Réduction de: <span style="color:#F16262"><?php echo $dtc2['reduction']; ?></span></div>
                                         <div class="coupon-brand"><?php echo $dtc2['titre']; ?></div>
                                         <div class="coupon-desc"><?php echo $dtc2['presentation']; ?> </div>
                                         <div class="time-left"><br/>
@@ -96,7 +96,7 @@
 												});
 												});
 											</script></div>
-                                        <a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Take Coupon</a>
+                                        <a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le bon</a>
                                     </div>
                                 </div><!--end: .coupon-item -->
 								<?php } ?>

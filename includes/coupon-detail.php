@@ -79,9 +79,9 @@
                             <div class="right-social">
                                 Partagez sur
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo BASE_URL.$_SERVER['REQUEST_URI']; ?>" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
-                                <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-square fa-2x"></i></a>
-                                <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+								<a href="http://twitter.com/share?text=<?php echo $dtcp['titre']; ?>&amp;url=<?php echo BASE_URL.$_SERVER['REQUEST_URI']; ?>" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                                <a href="http://pinterest.com/pin/create/button/?url=<?php echo BASE_URL.$_SERVER['REQUEST_URI']; ?>&description=<?php echo $dtcp['titre']; ?>" target="_blank"><i class="fa fa-pinterest-square fa-2x"></i></a>
+                                <!--a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a-->
                             </div>
                         </div>
                     </div>
@@ -103,6 +103,7 @@
                 </div><!--end: .mod-coupon-detail -->
                 <div class="mod-grp-coupon block clearfix">
                     <div class="block-content list-coupon clearfix">
+						<?php echo $dtmch['map']; ?>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.598032501732!2d-7.635176239085455!3d33.589784538628365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C+Maroc!5e0!3m2!1sfr!2sfr!4v1407169225429" width="100%" height="450" frameborder="0" style="border:0"></iframe><br/><br/>
                     </div>
                  </div><!--end block: Related coupons-->

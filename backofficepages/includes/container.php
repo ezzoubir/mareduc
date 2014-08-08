@@ -207,6 +207,14 @@
 	  case 'add_supervision':
       include 'modules/supervision/add_supervision.php';
       break;
+	  
+	  case 'cartes':
+      include 'modules/cartes/liste_cartes.php';
+      break;
+	  
+	  case 'devis':
+      include 'modules/devis/liste_devis.php';
+      break;
       
   }
 

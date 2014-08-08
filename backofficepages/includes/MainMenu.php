@@ -312,6 +312,8 @@
 <li><a href="index.php?action=villes">Villes</a></li>
 <li><a href="index.php?action=liste_delegues">Commerciaux</a></li>
 <li><a href="index.php?action=liste_supervision">Supervision</a></li>
+<li><a href="index.php?action=cartes">Cartes</a></li>
+<li><a href="index.php?action=devis">Devis</a></li>
 </ul>
 </div>
 <div style="clear:both"></div>

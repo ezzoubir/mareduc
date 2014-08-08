@@ -89,15 +89,16 @@ if(isset($header_article_facebook))
                 <h3 id="see_id" class="" >Demandez la carte Groupromo</h3>
                 <span>S'il vous plaît renseigner votre informations en utilisant le formulaire ci-dessous</span>
                 <div id="sign_up_form">
-                    <label><strong>Nom:</strong> <input type="text" name="carte_nom"  class="sprited"/></label>
-                    <label><strong>Prenom:</strong> <input type="text"  name="carte_prenom"  class="sprited"/></label>
-                    <label><strong>Adresse:</strong> <input type="text"  name="carte_adresse"  class="sprited"/></label>
-                    <label><strong>Tél:</strong> <input type="text"  name="carte_tel"  class="sprited"/></label>
-                    <label><strong>Email:</strong> <input type="text" name="carte_email"  class="sprited"/></label>
+				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+                    <label><strong>Nom:</strong> <input type="text" name="carte_nom"  class="sprited" required="true"/></label>
+                    <label><strong>Prenom:</strong> <input type="text"  name="carte_prenom"  class="sprited" required="true"/></label>
+                    <label><strong>Adresse:</strong> <input type="text"  name="carte_adresse"  class="sprited" required="true"/></label>
+                    <label><strong>Tél:</strong> <input type="text"  name="carte_tel"  class="sprited" required="true"/></label>
+                    <label><strong>Email:</strong> <input type="text" name="carte_email"  class="sprited" required="true"/></label>
                     <div id="actions">
-                        <a class="close form_button sprited" id="cancel" href="#">Annuler</a>
-                        <a class="form_button sprited" name="sign_carte" id="log_in" href="#">Enregistrer</a>
+                        <input type="submit" name="sign_carte"  style="margin-right: 27px;" />
                     </div>
+					</form>
                 </div>
                 <a id="close_x" class="close sprited" href="#">close</a>
     </div>
@@ -105,15 +106,16 @@ if(isset($header_article_facebook))
                 <h3 id="see_id" class="" >Demandez un devis</h3>
                 <span>S'il vous plaît renseigner votre informations en utilisant le formulaire ci-dessous</span>
                 <div id="sign_devis_form">
-                    <label><strong>Nom & Prénom:</strong> <input type="text" name="devis_nom" class="sprited"/></label>
-                    <label><strong>Tél:</strong> <input type="text"  name="devis_tel" class="sprited"/></label>
-                    <label><strong>Email:</strong> <input type="text" name="devis_email" class="sprited"/></label>
-                    <label><strong>Sujet:</strong> <input type="text"  name="devis_sujet" class="sprited"/></label>
-                    <label><strong>Message:</strong> <textarea name="devis_msg" class="sprited"/></textarea></label>
+				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+                    <label><strong>Nom & Prénom:</strong> <input type="text" name="devis_nom" class="sprited" required="true"/></label>
+                    <label><strong>Tél:</strong> <input type="text"  name="devis_tel" class="sprited" required="true"/></label>
+                    <label><strong>Email:</strong> <input type="text" name="devis_email" class="sprited" required="true"/></label>
+                    <label><strong>Sujet:</strong> <input type="text"  name="devis_sujet" class="sprited" required="true"/></label>
+                    <label><strong>Message:</strong> <textarea name="devis_msg" class="sprited" required="true"/></textarea></label>
                     <div id="actions">
-                        <a class="close form_button sprited" id="cancel" href="#">Annuler</a>
-                        <a class="form_button sprited" name="sign_devis" id="log_in" href="#">Enregistrer</a>
+						<input type="submit" name="sign_devis"  style="margin-right: 27px;" />
                     </div>
+				</form>
                 </div>
                 <a id="close_x" class="close sprited" href="#">close</a>
     </div>
@@ -121,15 +123,16 @@ if(isset($header_article_facebook))
                 <h3 id="see_id" class="" >Contactez nous</h3>
                 <span>S'il vous plaît renseigner votre informations en utilisant le formulaire ci-dessous</span>
                 <div id="sign_contact_form">
-                    <label><strong>Nom & Prénom:</strong> <input type="text" name="FORM_NAME" class="sprited"/></label>
-                    <label><strong>Email:</strong> <input type="text" name="FORM_EMAIL" class="sprited"/></label>
-                    <label><strong>Ville:</strong> <input type="text"  name="FORM_VILLE" class="sprited"/></label>
-                    <label><strong>Adresse:</strong> <input type="text"  name="FORM_SUJET" class="sprited"/></label>
-                    <label><strong>Message:</strong> <textarea name="FORM_MESSAGE" class="sprited"/></textarea></label>
+				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+                    <label><strong>Nom & Prénom:</strong> <input type="text" name="FORM_NAME" class="sprited" required="true"/></label>
+                    <label><strong>Email:</strong> <input type="text" name="FORM_EMAIL" class="sprited" required="true"/></label>
+                    <label><strong>Ville:</strong> <input type="text"  name="FORM_VILLE" class="sprited" required="true"/></label>
+                    <label><strong>Adresse:</strong> <input type="text"  name="FORM_SUJET" class="sprited" required="true"/></label>
+                    <label><strong>Message:</strong> <textarea name="FORM_MESSAGE" class="sprited" required="true"/></textarea></label>
                     <div id="actions">
-                        <a class="close form_button sprited" id="cancel" href="#">Annuler</a>
-                        <a class="form_button sprited" name="CONTACT_FORM_ENVOYER" id="log_in" href="#">Enregistrer</a>
+						<input type="submit" name="CONTACT_FORM_ENVOYER"  style="margin-right: 27px;" />
                     </div>
+				</form>
                 </div>
                 <a id="close_x" class="close sprited" href="#">close</a>
     </div>
@@ -255,7 +258,7 @@ if(isset($header_article_facebook))
 						$('#sign_up').find('input:first').focus()
 						}
 					});
-				e.preventDefault();
+				//e.preventDefault();
 			});
 			$('#try-2').click(function(e) {
 				$('#sign_devis').lightbox_me({
@@ -264,7 +267,7 @@ if(isset($header_article_facebook))
 						$('#sign_devis').find('input:first').focus()
 						}
 					});
-				e.preventDefault();
+				//e.preventDefault();
 			});
 			$('#try-3').click(function(e) {
 				$('#sign_contact').lightbox_me({
@@ -273,7 +276,7 @@ if(isset($header_article_facebook))
 						$('#sign_contact').find('input:first').focus()
 						}
 					});
-				e.preventDefault();
+				//e.preventDefault();
 			});
 			$('#try-4').click(function(e) {
 				$('#sign_contact').lightbox_me({
@@ -282,7 +285,7 @@ if(isset($header_article_facebook))
 						$('#sign_contact').find('input:first').focus()
 						}
 					});
-				e.preventDefault();
+				//e.preventDefault();
 			});
 		});
 	</script>

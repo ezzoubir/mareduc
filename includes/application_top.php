@@ -411,7 +411,7 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
 		$sql='insert into cartes (nom,prenom,adresse,tel,email) values ("'.$_POST['carte_nom'].'","'.$_POST['carte_prenom'].'","'.$_POST['carte_adresse'].'","'.$_POST['carte_tel'].'","'.$_POST['carte_email'].'")';
 		mysql_query($sql);
 		
-        // $message='<div>';
+        $message='<div>Une nouvelle demande de carte</div>';
         // $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
                  // '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
                  // '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
@@ -446,7 +446,7 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
 		$sql='insert into devis (nom,email,tel,sujet,message) values ("'.$_POST['devis_nom'].'","'.$_POST['devis_email'].'","'.$_POST['devis_tel'].'","'.$_POST['devis_sujet'].'","'.$_POST['devis_msg'].'")';
 		mysql_query($sql);
 		
-        // $message='<div>';
+        $message='<div>Une nouvelle demande de devis</div>';
         // $message.=$_POST['FORM_PRENOM'].' '.$_POST['FORM_NOM'].'<br /><br />
                  // '.FORM_ADRESSE. ' : '.$_POST['FORM_ADRESSE'].'<br />
                  // '.FORM_CP. ' : '.$_POST['FORM_CP'].'<br />
