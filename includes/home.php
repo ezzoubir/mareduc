@@ -13,7 +13,7 @@
 							$rec=mysql_query($sqc);
 							while($dtc2=mysql_fetch_array($rec)){
 						?>
-						
+							<?php if($dtc2['date_fin'] > date('Y-m-d')) { ?>
 							<div class="coupon-item grid_3">
 								<div class="coupon-content">
 									<div class="img-thumb-center">
@@ -46,11 +46,11 @@
 											});
 										</script>
 									</div>
-									<a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le bon</a>
+									<a class="btn btn-blue btn-take-coupon" href="promo-<?php echo $dtc2['slug']; ?>.html">Voir le bon</a>
 								</div>
 								<i class="stick-lbl hot-sale"></i>
 							</div><!--end: .coupon-item -->
-						<?php } ?>
+						<?php } } ?>
                     </div>
 					<!--a class="grid_6 btn btn-orange btn-load-more" href="#">Load more coupon</a-->
                 </div><!--end block: New Coupons-->

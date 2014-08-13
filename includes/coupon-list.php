@@ -3,7 +3,7 @@
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
-                        <h2 class="page-title">Coupon Code</h2>
+                        <h2 class="page-title">Les coupons de réduction</h2>
                     </div>
                 </div>
             </div>
@@ -20,6 +20,7 @@
 								$req=mysql_query($sql);
 								while($dtcp=mysql_fetch_assoc($req)){
 							?>
+								<?php if($dtcp['date_fin'] > date('Y-m-d')) { ?>
                                 <div class="coupons-code-item right-action flex">
                                     <div class="brand-logo thumb-left">
                                         <div class="wrap-logo">
@@ -32,7 +33,8 @@
                                         </div>
                                     </div>
                                     <div class="right-content flex-body">
-                                        <p class="rs save-price"><a href="#">Réduction de: <?php echo $dtcp['reduction']; ?> <br/> <?php echo $dtcp['presentation']; ?></a></p>
+                                        <p class="rs save-price"><a href="#">Réduction de: <?php echo $dtcp['reduction']; ?> <br/> 
+										<?php echo truncate($dtcp['presentation'], 80, '...', true); ?></a></p>
                                         <p class="rs coupon-desc">
 											<div class="time-left"><br/>
 										<div class="countdown<?php echo $dtcp['id']; ?> styled"></div>
@@ -61,11 +63,11 @@
                                                     <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
                                                 </span-->
                                             </div>
-                                            <a class="btn btn-blue btn-view-coupon" href="coupon-<?php echo $dtcp['slug']; ?>.html">Voir le bon</a>
+                                            <a class="btn btn-blue btn-view-coupon" href="promo-<?php echo $dtcp['slug']; ?>.html">Voir le bon</a>
                                         </div>
                                     </div>
                                 </div><!--end: .coupons-code-item -->
-							<?php } ?>
+							<?php } } ?>
                             </div>
                             <div class="pagination">
                                 <a class="page-nav" href="#"><i class="icon iPrev"></i></a>

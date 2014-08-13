@@ -49,24 +49,25 @@
 								$nmq=mysql_num_rows($reqq);
 								if($nmq==1){
 							?>
-                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow brand</a>
+                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow <?php echo $dtmch['marchand']; ?></a>
 							<?php } else { ?>
-							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow brand</a>
+							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow <?php echo $dtmch['marchand']; ?></a>
 							<?php } ?>
                             <div class="brand-desc">
-                                <div class="title-desc">About <?php echo $dtmch['marchand']; ?></div>
+                                <div class="title-desc">À propos de <?php echo $dtmch['marchand']; ?></div>
                                 <p class="rs"><?php echo $dtmch['presentation']; ?> </p>
                             </div>
                             <i class="stick-lbl trust-brand-y"></i>
                         </div><!--end: .brand-info-right -->
                         <div class="mod-grp-coupon block clearfix">
-                            <h3 class="title-block"><?php echo $datac['total']; ?> Lindt’s coupons</h3>
+                            <h3 class="title-block"><?php echo $datac['total']; ?> les coupons de <?php echo $dtmch['marchand']; ?></h3>
                             <div class="block-content list-coupon clearfix">
 								<?php
 									$sqc='select * from coupons where id_marchand = "'.$dtmch['id'].'"';
 									$rec=mysql_query($sqc);
 									while($dtc2=mysql_fetch_array($rec)){
 								?>
+								<?php if($dtc2['date_fin'] > date('Y-m-d')) { ?>
                                 <div class="coupon-item">
                                     <div class="coupon-content">
                                         <div class="img-thumb-center">
@@ -99,7 +100,7 @@
                                         <a class="btn btn-blue btn-take-coupon" href="coupon-<?php echo $dtc2['slug']; ?>.html">Voir le bon</a>
                                     </div>
                                 </div><!--end: .coupon-item -->
-								<?php } ?>
+								<?php } } ?>
                             </div>
                          </div><!--end block: group coupons-->
                     </div>

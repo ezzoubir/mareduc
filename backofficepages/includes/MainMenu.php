@@ -314,6 +314,7 @@
 <li><a href="index.php?action=liste_supervision">Supervision</a></li>
 <li><a href="index.php?action=cartes">Cartes</a></li>
 <li><a href="index.php?action=devis">Devis</a></li>
+<li><a href="http://www.lespromos.ma/" target="_blank">Voir le site</a></li>
 </ul>
 </div>
 <div style="clear:both"></div>

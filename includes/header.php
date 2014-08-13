@@ -19,7 +19,7 @@
                                         <a href="accueil.html">Accueil</a>
                                     </li>
                                     <li>
-                                        <a href="coupons.html">Coupons</a>
+                                        <a href="promos.html">Promos</a>
                                     </li>
 									<li>
                                         <a href="marchands.html">Marchands</a>
@@ -52,7 +52,7 @@
                                     </li-->
 									<?php if(isset($_SESSION['id_membre'])) { ?>
                                     <li>
-                                        <a href="my-coupon.html">Mes coupons</a>
+                                        <a href="mes-promos.html">Mes promos</a>
                                         <i class="icon iPickRed lbl-count"><span><?php echo getCoupnByUserTotal($_SESSION['id_membre']); ?></span></i>
                                     </li>
 									<?php } ?>
@@ -76,24 +76,23 @@
 											<input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news">
-                                            <a class="lost-pass" href="#">Forgot password ?</a>
+                                            <a class="lost-pass" href="#">Mot de passe oublié?</a>
                                         </label>
                                         <div class="wrap-login-btn">
                                             <button class="btn-flat gr btn-submit-reg" type="submit" name="LOGIN_FORM_ENVOYER">Connexion</button>
-                                            <!--div class="sep-connect">
+                                            <div class="sep-connect">
                                                 <span>Ou</span>
                                             </div>
                                             <div class="grp-connect">
                                                 <a class="btn-flat fb" href="#">Facebook</a>
                                                 <a class="btn-flat gg" href="#">Google</a>
-                                            </div-->
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="right-create-acc">
                                         <img class="account" src="images/reg-account.png" alt="Couponday.com">
-                                        <p class="lbl-dung-lo rs">Not a member? Don’t worry</p>
-                                        <a id="sys_link_reg_panel" href="register.html" class="btn-flat yellow btn-submit-reg">Create an account</a>
-                                        <div style="display: block;" id="sys_warning_sms" class="warning-sms" data-warning-txt="No spam guarantee,No disturb,Promotion News">No disturb</div>
+                                        <p class="lbl-dung-lo rs">Pas encore membre? Ne vous inquiétez pas</p>
+                                        <a id="sys_link_reg_panel" href="register.html" class="btn-flat yellow btn-submit-reg">Créer un compte</a>
                                     </div>
                                 </form>
                                 <i class="line-sep"></i>
@@ -128,21 +127,21 @@ obtenir un accès exclusif aux promotions de Groupromo.ma. Entrez un e-mail et u
                                     </div>
                                     <div class="right-connect">
                                         <button class="btn-flat yellow btn-submit-reg" type="submit" name="ESPACE_MEMBRE_FORM_INSCRIPTION">Créer un compte</button>
-                                        <!--div class="sep-connect">
-                                            <span>Or</span>
+                                        <div class="sep-connect">
+                                            <span>Ou</span>
                                         </div>
                                         <div class="grp-connect">
-                                            <p class="rs">Sign up using your account on:</p>
+                                            <p class="rs">Inscrivez-vous en utilisant votre compte:</p>
                                             <a class="btn-flat fb" href="#">Facebook</a>
                                             <a class="btn-flat gg" href="#">Google</a>
-                                        </div-->
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                             <p class="rs wrap-link-back">
                                 <a id="sys_link_login_panel" href="login.html" class="link-back">
                                     <i class="pick-r"></i>
-                                    Back to login
+                                    Retour à la connexion
                                 </a>
                             </p>
                         </div><!--end: Register panel -->

@@ -50,7 +50,7 @@
 							<div class="noUi-handle noUi-handle-upper"></div></div></div></div>
                             <span id="sys_max_day" class="max-day">80</span>
                         </div><!--end: .range-days-left -->
-                        <input id="sys_apply_filter" class="btn btn-red type-1 btn-apply-filter" value="Apply Filter" type="button">
+                        <input id="sys_apply_filter" class="btn btn-red type-1 btn-apply-filter" value="Rechercher" type="button">
                     </div>
                 </div>
             </div>

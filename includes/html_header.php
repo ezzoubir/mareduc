@@ -287,6 +287,13 @@ if(isset($header_article_facebook))
 					});
 				//e.preventDefault();
 			});
+			$('#showadress').click(function(){
+				$('#adressecoupon').fadeToggle(300);
+				$('#map').fadeToggle(300);
+			});
+
+			$("#showloginpop").on("click",function(){$("#sys_pop_login").fadeToggle(300)});
+			
 		});
 	</script>
 <!--[if lte IE 9]>

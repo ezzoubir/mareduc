@@ -43,7 +43,7 @@ else
           $sql='update  '.PREFIXE_BDD.'membres set date_login="'.date('Y-m-d').'" where id_membre="'.$_SESSION['id_membre'].'"';
           mysql_query($sql);
           
-          header('LOCATION:mes-coupons.html');
+          header('LOCATION:mes-promos.html');
       }
       else
       {
@@ -107,7 +107,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 					  $sql='update  '.PREFIXE_BDD.'membres set date_login="'.date('Y-m-d').'" where id_membre="'.$_SESSION['id_membre'].'"';
 					  mysql_query($sql);
 					  
-					  header('LOCATION:mes-coupons.html');
+					  header('LOCATION:mes-promos.html');
 				  }
           }  
           else

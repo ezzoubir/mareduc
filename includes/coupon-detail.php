@@ -43,10 +43,11 @@
                         <div class="save-price">Réduction de : <span style="color:#F16262"><?php echo $dtcp['reduction']; ?></span></div>
                         <a href="#" class="brand-name"><?php echo $dtmch['marchand']; ?></a>
                         <div class="coupon-desc"><?php echo $dtcp['presentation']; ?></div>
-						<div class="coupon-desc" style="font-size:14px">
+						<div id="adressecoupon" class="coupon-desc" style="font-size:14px;border:5px solid #f16262;padding:8px;display:none;">
 							<b><span style="color:#00B5F4">Adresse :</span></b> <?php echo $dtmch['adresse']; ?><br/>
 							<b><span style="color:#00B5F4">Tél :</span></b> <?php echo $dtmch['tel']; ?><br/>
 							<b><span style="color:#00B5F4">Site :</span></b> <?php echo $dtmch['site']; ?><br/>
+							<b><span style="color:#00B5F4">Map :</span></b> <a href="#map">Cliquez</a><br/>
 						</div>
                         <div class="wrap-btn clearfix">
                             <div class="day-left">
@@ -68,7 +69,11 @@
 										});
 									</script>
 							</div>
-                            <a class="btn btn-blue btn-take-coupon" href="#">Imprimer le bon</a>
+							<?php if(isset($_SESSION['id_membre'])) { ?>
+                            <span id="showadress" class="btn btn-blue btn-take-coupon" href="#">Afficher l'adresse</span>
+							<?php } else { ?>
+							<span id="showloginpop" class="btn btn-blue btn-take-coupon" href="#">Afficher l'adresse</span>
+							<?php } ?>
                         </div>
                         <div class="wrap-action clearfix">
                             <div class="left-vote">
@@ -102,7 +107,7 @@
                     </div>
                 </div><!--end: .mod-coupon-detail -->
                 <div class="mod-grp-coupon block clearfix">
-                    <div class="block-content list-coupon clearfix">
+                    <div id="map" class="block-content list-coupon clearfix" style="display:none;">
 						<?php echo $dtmch['map']; ?>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.598032501732!2d-7.635176239085455!3d33.589784538628365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C+Maroc!5e0!3m2!1sfr!2sfr!4v1407169225429" width="100%" height="450" frameborder="0" style="border:0"></iframe><br/><br/>
                     </div>
