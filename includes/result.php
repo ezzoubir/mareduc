@@ -54,4 +54,7 @@
 								</div>
 								<i class="stick-lbl hot-sale"></i>
 							</div><!--end: .coupon-item -->
-						<?php } } ?>
+						<?php } } elseif($_POST['filter']=='addconsoma') {
+								$sql='insert into users_coupons (id_membre,id_coupon) values ("'.$_POST['idmembre'].'","'.$_POST['idpromo'].'") ';
+								mysql_query($sql);
+						 } ?>

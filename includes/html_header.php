@@ -221,7 +221,7 @@ if(isset($header_article_facebook))
 				$('body .couponslist').html('<p style="text-align:center"><img src="<?php echo BASE_URL;?>images/loading.gif" /></p>');
 				setTimeout(function() {
 								var tag = $(this).attr('data-value');
-								alert(tag);
+								//alert(tag);
 								var formData = "filter=3&tag="+tag;
 								$.ajax({
 										url : "includes/result.php",
@@ -290,6 +290,14 @@ if(isset($header_article_facebook))
 			$('#showadress').click(function(){
 				$('#adressecoupon').fadeToggle(300);
 				$('#map').fadeToggle(300);
+					var idc = $(this).attr('data-value');
+					var idm = <?php echo $_SESSION['id_membre']; ?>;
+					var formData = "filter=addconsoma&idmembre="+idm+"&idpromo="+idc;
+						$.ajax({
+								url : "includes/result.php",
+								type: "POST",
+								data : formData
+						});
 			});
 
 			$("#showloginpop").on("click",function(){$("#sys_pop_login").fadeToggle(300)});

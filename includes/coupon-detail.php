@@ -11,7 +11,7 @@
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
-                        <h2 class="page-title">Bons</h2>
+                        <h2 class="page-title">Promo : <?php echo $dtcp['titre'].' : '.$dtcp['reduction']; ?> </h2>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
 									</script>
 							</div>
 							<?php if(isset($_SESSION['id_membre'])) { ?>
-                            <span id="showadress" class="btn btn-blue btn-take-coupon" href="#">Afficher l'adresse</span>
+                            <span id="showadress" data-value="<?php echo $dtcp['id']; ?>" class="btn btn-blue btn-take-coupon" href="#">Afficher l'adresse</span>
 							<?php } else { ?>
 							<span id="showloginpop" class="btn btn-blue btn-take-coupon" href="#">Afficher l'adresse</span>
 							<?php } ?>
