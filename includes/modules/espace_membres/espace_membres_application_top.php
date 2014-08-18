@@ -26,7 +26,18 @@ else
         
   
   }
-  
+  function GetNewPassword()
+    {
+        $NbrChrs=6;
+        $list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
+        mt_srand((double)microtime()*1000000);
+        $pass="";
+        while(strlen( $pass )< $NbrChrs ) 
+        {
+    			$pass .= $list[mt_rand(0, strlen($list)-1)];
+    		}
+    		return $pass;
+    }
   if(isset($_POST['LOGIN_FORM_ENVOYER']))
   {
       // login
@@ -65,7 +76,7 @@ else
 	
 					
               // on peut continuer
-              $sql='insert into '.PREFIXE_BDD.'membres (nom,societe,adresse,tel,email,password,date_inscription,statut)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_SOCIETE'].'","'.$_POST['FORM_ADRESSE'].'","'.$_POST['FORM_TEL'].'","'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.date('Y-m-d').'","1")';
+              $sql='insert into '.PREFIXE_BDD.'membres (nom,societe,adresse,tel,email,password,date_inscription,statut,source)  values("'.$_POST['FORM_NOM'].'","'.$_POST['FORM_SOCIETE'].'","'.$_POST['FORM_ADRESSE'].'","'.$_POST['FORM_TEL'].'","'.$_POST['FORM_EMAIL'].'","'.md5($_POST['FORM_PASSWORD']).'","'.date('Y-m-d').'","1","site")';
               mysql_query($sql);
 			
               // envoi email de confirmation
@@ -78,7 +89,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                     $message='<div>';
                   else
                     $message='<div dir="rtl">';
-                  $message.='<br /><br />Merci de vous être enregistré sur Dealonline.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
+                  $message.='<br /><br />Merci de vous être enregistré sur lespromos.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
 				  $message.='Identifiant : '.$_POST['FORM_EMAIL'];
 				  $message.='Mot de passe : '.$_POST['FORM_PASSWORD'];
 				  $message.='Cordialement,<br/>L`\'équipe Groupromo.ma';
@@ -100,6 +111,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 				  {
 					  $ro=mysql_fetch_array($res);
 					  $_SESSION['id_membre']=$ro['id_membre'];
+					  $_SESSION['displayname']=$ro['nom'];
 					  if(isset($ro['privilege']))
 					  $_SESSION['privilege']=true;
 					  
@@ -122,18 +134,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
       }
   
   }
-  function GetNewPassword()
-    {
-        $NbrChrs=6;
-        $list = "abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
-        mt_srand((double)microtime()*1000000);
-        $pass="";
-        while(strlen( $pass )< $NbrChrs ) 
-        {
-    			$pass .= $list[mt_rand(0, strlen($list)-1)];
-    		}
-    		return $pass;
-    }
+  
   
   
   if(isset($_POST['LOGIN_PASSWORD_FORM_ENVOYER']))

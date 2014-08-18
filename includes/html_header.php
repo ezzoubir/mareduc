@@ -287,6 +287,7 @@ if(isset($header_article_facebook))
 					});
 				//e.preventDefault();
 			});
+			<?php if(isset($_SESSION['id_membre'])){ ?>
 			$('#showadress').click(function(){
 				$('#adressecoupon').fadeToggle(300);
 				$('#map').fadeToggle(300);
@@ -299,7 +300,7 @@ if(isset($header_article_facebook))
 								data : formData
 						});
 			});
-
+			<?php } ?>
 			$("#showloginpop").on("click",function(){$("#sys_pop_login").fadeToggle(300)});
 			
 		});

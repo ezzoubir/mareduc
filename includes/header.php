@@ -72,8 +72,8 @@
                                 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
                                     <div class="left-form">
                                         <label class="wrap-txt" for="">
-                                            <input class="input-txt" id="sys_email" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
-											<input class="input-txt" id="sys_pass" placeholder="password svp!" type="password" name="FORM_PASSWORD">
+                                            <input class="input-txt" id="sys_email" placeholder="aaa@mail.com" type="email" name="FORM_EMAIL">
+											<input class="input-txt" id="sys_pass" placeholder="Mot de passe svp!" type="password" name="FORM_PASSWORD">
                                         </label>
                                         <label class="wrap-check" for="sys_chk_news">
                                             <a class="lost-pass" href="#">Mot de passe oublié?</a>
@@ -84,8 +84,8 @@
                                                 <span>Ou</span>
                                             </div>
                                             <div class="grp-connect">
-                                                <a class="btn-flat fb" href="#">Facebook</a>
-                                                <a class="btn-flat gg" href="#">Google</a>
+                                                <a class="btn-flat fb" href="/login.php?provider=facebook">Facebook</a>
+                                                <a class="btn-flat gg" href="/login.php?provider=Google">Google</a>
                                             </div>
                                         </div>
                                     </div>
@@ -110,11 +110,11 @@ obtenir un accès exclusif aux promotions de Groupromo.ma. Entrez un e-mail et u
 										</label>
                                         <label class="wrap-txt" for="">
                                             <input class="input-txt" id="sys_nom_reg" placeholder="Nom & Prénom" type="text" name="FORM_NOM">
-                                            <input class="input-txt" id="sys_email_reg" placeholder="you@mail.com" type="email" name="FORM_EMAIL">
+                                            <input class="input-txt" id="sys_email_reg" placeholder="aaa@mail.com" type="email" name="FORM_EMAIL">
                                         </label>
-                                        <label class="wrap-txt" for="sys_pass_reg">
-                                            <input class="input-txt" id="sys_pass_reg" placeholder="password please!" type="password" name="FORM_PASSWORD">
-                                            <input class="input-txt" id="sys_pass_2" placeholder="Confirm please!" type="password" name="FORM_PASSWORD2">
+                                        <label class="wrap-txt" for="">
+                                            <input class="input-txt" id="sys_pass_reg" placeholder="Mot de passe" type="password" name="FORM_PASSWORD">
+                                            <input class="input-txt" id="sys_pass_2" placeholder="Confimer" type="password" name="FORM_PASSWORD2">
                                         </label>
 										<label class="wrap-txt" for="sys_pass_adrs">
                                             <input class="input-txt" id="sys_adrs" placeholder="Adresse" type="text" name="FORM_ADRESSE">
@@ -132,8 +132,8 @@ obtenir un accès exclusif aux promotions de Groupromo.ma. Entrez un e-mail et u
                                         </div>
                                         <div class="grp-connect">
                                             <p class="rs">Inscrivez-vous en utilisant votre compte:</p>
-                                            <a class="btn-flat fb" href="#">Facebook</a>
-                                            <a class="btn-flat gg" href="#">Google</a>
+                                            <a class="btn-flat fb" href="/login.php?provider=facebook">Facebook</a>
+                                            <a class="btn-flat gg" href="/login.php?provider=Google">Google</a>
                                         </div>
                                     </div>
                                 </form>

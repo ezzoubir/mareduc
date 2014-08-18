@@ -48,7 +48,7 @@
                         </div><!--end: Intro Video -->
                         <div class="grid_3">
                             <div class="block blog-recent">
-                                <h3 class="title-block">la Carte Groupromo</h3>
+                                <h3 class="title-block">la Carte Lespromos</h3>
                                 <div class="block-content">
                                     <div class="entry-item flex">
                                         <a class="try" id="try-1" href="#" title="">
@@ -71,7 +71,7 @@
                             <a class="try" id="try-4" href="#" title="">Contact</a>
                         </div>
                         <div class="copyright">
-                            www.groupromo.ma Copyright © 2014 by INTELLIGENCIA
+                            www.lespromos.ma Copyright © 2014 by INTELGENCIA
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 08 Août 2014 à 14:17
+-- Généré le: Lun 18 Août 2014 à 17:02
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `cartes` (
   `tel` varchar(50) NOT NULL,
   `adresse` text NOT NULL,
   `email` varchar(100) NOT NULL,
+  `statut` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -628,15 +629,17 @@ CREATE TABLE IF NOT EXISTS `cms_v2_membres` (
   `date_login` date NOT NULL DEFAULT '0000-00-00',
   `statut` tinyint(4) NOT NULL DEFAULT '0',
   `privilege` tinyint(4) NOT NULL DEFAULT '0',
+  `source` varchar(20) NOT NULL,
   PRIMARY KEY (`id_membre`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Contenu de la table `cms_v2_membres`
 --
 
-INSERT INTO `cms_v2_membres` (`id_membre`, `login`, `nom`, `prenom`, `societe`, `adresse`, `tel`, `password`, `email`, `language`, `date_inscription`, `date_login`, `statut`, `privilege`) VALUES
-(24, '', 'ezzoubir didro', '', 'kaliop', 'txt xtxt txtx xt xtx ', '0671708312', 'e10adc3949ba59abbe56e057f20f883e', 'zoubir@mail.fr', '', '2014-08-01', '2014-08-06', 1, 0);
+INSERT INTO `cms_v2_membres` (`id_membre`, `login`, `nom`, `prenom`, `societe`, `adresse`, `tel`, `password`, `email`, `language`, `date_inscription`, `date_login`, `statut`, `privilege`, `source`) VALUES
+(24, '', 'ezzoubir didro', '', 'kaliop', 'txt xtxt txtx xt xtx ', '0671708312', 'e10adc3949ba59abbe56e057f20f883e', 'zoubir@mail.fr', '', '2014-08-01', '2014-08-13', 1, 0, ''),
+(25, '', 'Ezzoubir Douider', '', '', '', '', '', 'douiderezzoubir@gmail.com', '', '2014-08-18', '2014-08-18', 1, 0, 'Google');
 
 -- --------------------------------------------------------
 
@@ -735,7 +738,7 @@ CREATE TABLE IF NOT EXISTS `cms_v2_metatags` (
 --
 
 INSERT INTO `cms_v2_metatags` (`id_metatags`, `language`, `titre`, `description`, `mots`, `tags`) VALUES
-(1, 'fr', 'Groupromo', '', '', 'tag sifro photo video Sifro '),
+(1, 'fr', 'LesPromos', '', '', 'tag sifro photo video Sifro '),
 (3, 'al', ':: BOOKING TABLES  ::', '', '', ''),
 (2, 'en', '', '', '', '');
 
@@ -1238,8 +1241,16 @@ CREATE TABLE IF NOT EXISTS `devis` (
   `tel` varchar(100) NOT NULL,
   `sujet` varchar(200) NOT NULL,
   `message` text NOT NULL,
+  `statut` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `devis`
+--
+
+INSERT INTO `devis` (`id`, `nom`, `email`, `tel`, `sujet`, `message`, `statut`) VALUES
+(1, 'yassir mankari', 'yassir.mk@gmail.fr', '0678989898', 'test', 'txt txt txt txt ', 0);
 
 -- --------------------------------------------------------
 
@@ -1425,7 +1436,14 @@ CREATE TABLE IF NOT EXISTS `users_coupons` (
   `id_membre` int(11) NOT NULL,
   `id_coupon` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `users_coupons`
+--
+
+INSERT INTO `users_coupons` (`id`, `id_membre`, `id_coupon`) VALUES
+(1, 24, 2);
 
 -- --------------------------------------------------------
 
