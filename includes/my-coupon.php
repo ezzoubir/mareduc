@@ -61,7 +61,6 @@
 												});
 											</script>
 										</div>
-                                        <a class="btn-discard" href="#">Discard coupon</a>
                                     </div>
                                     <i class="stick-lbl hot-sale"></i>
                                 </div><!--end: .coupon-item -->

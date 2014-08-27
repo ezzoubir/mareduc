@@ -63,20 +63,36 @@
                                                     <span class="lbl-vote"><span class="vbot">2</span> <i class="icon iSubVote"></i></span>
                                                 </span-->
                                             </div>
-                                            <a class="btn btn-blue btn-view-coupon" href="promo-<?php echo $dtcp['slug']; ?>.html">Voir le bon</a>
+                                            <a class="btn btn-blue btn-view-coupon" href="promo-<?php echo $dtcp['slug']; ?>.html">Détails</a>
                                         </div>
                                     </div>
                                 </div><!--end: .coupons-code-item -->
 							<?php } } ?>
                             </div>
                             <div class="pagination">
-                                <a class="page-nav" href="#"><i class="icon iPrev"></i></a>
-                                <a class="page-num active" href="#">1</a>
-                                <a class="page-num" href="#">2</a>
-                                <a class="page-num" href="#">3</a>
-                                <a class="page-num" href="#">4</a>
-                                <a class="page-num" href="#">5</a>
-                                <a class="page-nav" href="#"><i class="icon iNext"></i></a>
+								<?php
+								
+									$query="select id from coupons order by id desc";
+									$res=mysql_query($query);
+									$count=mysql_num_rows($res);
+									if($count > 0){
+										  $paginationCount=getPagination($count);
+									}
+
+									if($count > 0){
+										echo '<a class="page-nav" href="javascript:void(0)" onclick="changePagination(\'0\',\'first\')"><i class="icon iPrev"></i></a>';
+									
+										for($i=0;$i<$paginationCount;$i++){
+										
+											echo '<a id="page_'.$i.'" class="page-num" href="javascript:void(0)" onclick="changePagination(\''.$i.'\',\''.$i.'_no\')">'.($i+1).'</a>';
+											  
+										}
+										echo '<a class="page-nav" href="javascript:void(0)" onclick="changePagination(\''.($paginationCount-1).'\',\'last\')"><i class="icon iNext"></i></a>';
+										echo '<span class="flash"></span>';
+																
+									}
+								
+								?>
                             </div>
                         </div><!--end: .mod-coupons-code -->
                     </div>
@@ -86,7 +102,7 @@
                             <div class="block-content">
                                 <div class="wrap-list-store clearfix">
 								<?php	
-									$sql='select * from marchands order by id desc limit 4';
+									$sql='select * from marchands order by id desc limit 8';
 									$req=mysql_query($sql);
 									while($dtmch=mysql_fetch_assoc($req)){
 								?>
@@ -108,3 +124,21 @@
                 </div>
             </div>
         </div>
+		<script type="text/javascript">
+			function changePagination(pageId,liId){
+				 $("#coupons_list").html('<p style="text-align:center"><img src="<?php echo BASE_URL;?>images/loading.gif" /></p>');
+				 var dataString = 'pageId='+ pageId;
+				 $.ajax({
+					   type: "POST",
+					   url: "includes/loadData.php",
+					   data: dataString,
+					   cache: false,
+					   success: function(result){
+							 $(".flash").hide();
+							 $(".pagination a").removeClass("active") ;
+							 $("#page_"+pageId).addClass("active");
+							 $("#coupons_list").html(result);
+					   }
+				  });
+			}
+		</script>

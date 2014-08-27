@@ -71,7 +71,7 @@
                             <a class="try" id="try-4" href="#" title="">Contact</a>
                         </div>
                         <div class="copyright">
-                            www.lespromos.ma Copyright © 2014 by INTELGENCIA
+                            www.lespromos.ma Copyright © 2014 by INOVANCIA
                         </div>
                     </div>
                 </div>
