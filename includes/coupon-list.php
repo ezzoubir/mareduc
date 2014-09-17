@@ -3,7 +3,7 @@
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
-                        <h2 class="page-title">Les coupons de réduction</h2>
+                        <h2 class="page-title">Les promos </h2>
                     </div>
                 </div>
             </div>

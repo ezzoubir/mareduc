@@ -8,7 +8,7 @@
             <div class="grid_frame">
                 <div class="container_grid clearfix">
                     <div class="grid_12">
-                        <h2 class="page-title"><?php echo $num; ?> Brands are waiting for you</h2>
+                        <h2 class="page-title"><?php echo $num; ?> marchands vous attendent </h2>
                     </div>
                 </div>
             </div>
