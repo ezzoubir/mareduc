@@ -60,6 +60,13 @@ if(isset($header_article_facebook))
 <script src="js/jquery.lazyload.js" type="text/javascript"></script>
 <script src="js/lightbox.min.js"></script>
 <script src="js/jquery.lightbox_me.js"></script>
+<link href="css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+	
+	<style>
+		.login-dialog .modal-dialog {
+			width: 300px;
+		}
+	</style>
 </head>
 <body class="gray"><!--<div class="alert_w_p_u"></div>-->
 <div class="container-page">
@@ -149,14 +156,16 @@ if(isset($header_article_facebook))
 
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="jquery/jRating.jquery.js"></script>
+<script src="js/bootstrap-dialog.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.basic').jRating({
-				onSuccess : function(){
-					alert('Success : your rate has been saved :)');
+				  length:5,
+				  onSuccess : function(){
+					BootstrapDialog.alert('Votre message a été envoyé avec succès');
 				  },
 				  onError : function(){
-					alert('Error : please retry');
+					BootstrapDialog.alert('Vous avez déja voté');
 				  }
 			});
 			/*$('.scroll').jscroll({
@@ -169,12 +178,9 @@ if(isset($header_article_facebook))
 					type: "POST",
 					url: 'php/Follow.php',
 					data: data,
-					onSuccess : function(){
-					alert('Success : your rate has been saved :)');
-					  },
-					  onError : function(){
-						alert('Error : please retry');
-					  }
+					success : function(){
+						BootstrapDialog.alert('Votre message a été envoyé avec succès');
+					}
 				});
 			});
 			
@@ -185,12 +191,9 @@ if(isset($header_article_facebook))
 					type: "POST",
 					url: 'php/Follow.php',
 					data: data,
-					onSuccess : function(){
-					alert('Success : your rate has been saved :)');
-					  },
-					  onError : function(){
-						alert('Error : please retry');
-					  }
+					success : function(){
+						BootstrapDialog.alert('Votre message a été envoyé avec succès');
+					}
 				});
 			});
 			$("#sys_apply_filter").on("click",function(){

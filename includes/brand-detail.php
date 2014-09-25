@@ -18,49 +18,8 @@
                 <div class="mod-brand-detail-2 clearfix">
                     <div class="grid_9 wrap-left-info">
                         <p class="rs ta-c banner-brand"><img src="images/08-03.jpg" alt="<?php echo $dtmch['marchand']; ?>"></p>
-                        <div class="brand-info-right">
-                            <p class="rs ta-c brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
-                            <div class="rate-brand clearfix">
-                                <div class="basic" data-average="12" data-id="<?php echo $dtmch['id']; ?>"></div>
-                            </div>
-                            <div class="count-info clearfix">
-                                <span class="lbl">Follower</span>
-                                <span class="val">
-									<?php 
-										$sql=mysql_query('select count(*) as total from followers where id_marchand = "'.$dtmch['id'].'"');
-										$dataf = mysql_fetch_array($sql);
-										echo $dataf['total']; 
-									?>
-								</span>
-                            </div>
-                            <div class="count-info clearfix">
-                                <span class="lbl">Coupons</span>
-                                <span class="val">
-									<?php 
-										$sql=mysql_query('select count(*) as total from coupons where id_marchand = "'.$dtmch['id'].'"');
-										$datac = mysql_fetch_array($sql);
-										echo $datac['total']; 
-									?>
-								</span>
-                            </div>
-							<?php 
-								$sqq='select * from followers where id_membre = "22" and id_marchand = "'.$dtmch['id'].'"';
-								$reqq=mysql_query($sqq);
-								$nmq=mysql_num_rows($reqq);
-								if($nmq==1){
-							?>
-                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow <?php echo $dtmch['marchand']; ?></a>
-							<?php } else { ?>
-							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow <?php echo $dtmch['marchand']; ?></a>
-							<?php } ?>
-                            <div class="brand-desc">
-                                <div class="title-desc">À propos de <?php echo $dtmch['marchand']; ?></div>
-                                <p class="rs"><?php echo $dtmch['presentation']; ?> </p>
-                            </div>
-                            <i class="stick-lbl trust-brand-y"></i>
-                        </div><!--end: .brand-info-right -->
                         <div class="mod-grp-coupon block clearfix">
-                            <h3 class="title-block"><?php echo $datac['total']; ?> les coupons de <?php echo $dtmch['marchand']; ?></h3>
+                            <h3 class="title-block">les coupons de <?php echo $dtmch['marchand']; ?></h3>
                             <div class="block-content list-coupon clearfix">
 								<?php
 									$sqc='select * from coupons where id_marchand = "'.$dtmch['id'].'"';
@@ -104,6 +63,49 @@
                             </div>
                          </div><!--end block: group coupons-->
                     </div>
+					<div class="grid_3 wrap-right-info">
+						<div class="brand-info-right">
+                            <p class="rs ta-c brand-logo"><img src="images/photos/<?php echo $dtmch['logo']; ?>" alt="<?php echo $dtmch['marchand']; ?>"></p>
+                            <div class="rate-brand clearfix">
+                                <div class="basic" data-average="12" data-id="<?php echo $dtmch['id']; ?>"></div>
+                            </div>
+                            <div class="count-info clearfix">
+                                <span class="lbl">Follower</span>
+                                <span class="val">
+									<?php 
+										$sql=mysql_query('select count(*) as total from followers where id_marchand = "'.$dtmch['id'].'"');
+										$dataf = mysql_fetch_array($sql);
+										echo $dataf['total']; 
+									?>
+								</span>
+                            </div>
+                            <div class="count-info clearfix">
+                                <span class="lbl">Coupons</span>
+                                <span class="val">
+									<?php 
+										$sql=mysql_query('select count(*) as total from coupons where id_marchand = "'.$dtmch['id'].'"');
+										$datac = mysql_fetch_array($sql);
+										echo $datac['total']; 
+									?>
+								</span>
+                            </div>
+							<?php 
+								$sqq='select * from followers where id_membre = "22" and id_marchand = "'.$dtmch['id'].'"';
+								$reqq=mysql_query($sqq);
+								$nmq=mysql_num_rows($reqq);
+								if($nmq==1){
+							?>
+                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow <?php echo $dtmch['marchand']; ?></a>
+							<?php } else { ?>
+							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow <?php echo $dtmch['marchand']; ?></a>
+							<?php } ?>
+                            <div class="brand-desc">
+                                <div class="title-desc">À propos de <?php echo $dtmch['marchand']; ?></div>
+                                <p class="rs"><?php echo $dtmch['presentation']; ?> </p>
+                            </div>
+                            <i class="stick-lbl trust-brand-y"></i>
+                        </div><!--end: .brand-info-right -->
+					</div>
                 </div><!--end: .mod-brand-detail-2 -->
             </div>
         </div>
