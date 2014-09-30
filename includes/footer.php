@@ -48,10 +48,10 @@
                         </div><!--end: Intro Video -->
                         <div class="grid_3">
                             <div class="block blog-recent">
-                                <h3 class="title-block">la Carte Lespromos</h3>
+                                <h3 class="title-block">Carte Fidélité</h3>
                                 <div class="block-content">
                                     <div class="entry-item flex">
-                                        <a class="try" id="try-1" href="#" title="">
+                                        <a class="try" id="try-1" href="javascript:void(0);" title="">
                                             <img src="images/carte.png" alt="carte groupormo" style="width:245px">
                                         </a>
                                     </div>
@@ -67,8 +67,8 @@
                         <div class="left-link">
                             <a href="accueil.html">Accueil</a>
                             <a href="mentions.html">Mentions légales</a>
-                            <a class="try" id="try-2" href="#" title="">Demande un devis</a>
-                            <a class="try" id="try-4" href="#" title="">Contact</a>
+                            <a class="try" id="try-2" href="javascript:void(0);" title="">Demande un devis</a>
+                            <a class="try" id="try-4" href="javascript:void(0);" title="">Contact</a>
                         </div>
                         <div class="copyright">
                             www.lespromos.ma Copyright © 2014 by INOVANCIA

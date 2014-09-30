@@ -241,3 +241,6 @@ a{color:#888}.gray .container-page{background:url(../images/pattern.png)}.gray .
     line-height: 1000px;
     overflow: hidden;
 }
+.btn.btn-primary {
+    background: none repeat scroll 0 0 #2459b9;
+}

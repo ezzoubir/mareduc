@@ -46,6 +46,7 @@ if(isset($header_article_facebook))
 
     <link rel="stylesheet" href="css/res-menu.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="jquery/jRating.jquery.css" type="text/css" />
 
@@ -60,7 +61,6 @@ if(isset($header_article_facebook))
 <script src="js/jquery.lazyload.js" type="text/javascript"></script>
 <script src="js/lightbox.min.js"></script>
 <script src="js/jquery.lightbox_me.js"></script>
-<link href="css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
 	
 	<style>
 		.login-dialog .modal-dialog {
@@ -147,7 +147,8 @@ if(isset($header_article_facebook))
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/html5.js"></script>
 <![endif]-->
-
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootbox.js"></script>
 <script type="text/javascript" src="js/html5lightbox.js"></script>
 <!--//js for responsive menu-->
 <script type="text/javascript" src="js/modernizr.js"></script>
@@ -156,16 +157,16 @@ if(isset($header_article_facebook))
 
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="jquery/jRating.jquery.js"></script>
-<script src="js/bootstrap-dialog.min.js"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.basic').jRating({
 				  length:5,
 				  onSuccess : function(){
-					BootstrapDialog.alert('Votre message a été envoyé avec succès');
+				  	bootbox.alert("Votre message a été envoyé avec succès");
 				  },
 				  onError : function(){
-					BootstrapDialog.alert('Vous avez déja voté');
+					bootbox.alert('Vous avez déja voté');
 				  }
 			});
 			/*$('.scroll').jscroll({
@@ -179,7 +180,7 @@ if(isset($header_article_facebook))
 					url: 'php/Follow.php',
 					data: data,
 					success : function(){
-						BootstrapDialog.alert('Votre message a été envoyé avec succès');
+						bootbox.alert('Votre message a été envoyé avec succès');
 					}
 				});
 			});
@@ -192,7 +193,7 @@ if(isset($header_article_facebook))
 					url: 'php/Follow.php',
 					data: data,
 					success : function(){
-						BootstrapDialog.alert('Votre message a été envoyé avec succès');
+						bootbox.alert('Votre message a été envoyé avec succès');
 					}
 				});
 			});

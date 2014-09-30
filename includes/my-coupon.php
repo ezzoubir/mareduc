@@ -36,7 +36,7 @@
                                         <div class="img-thumb-center">
 										<div class="wrap-img-thumb">
 											<span class="ver_hold"></span>
-											<a href="coupon-detail.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
+											<a href="promo-<?php echo $dtc2['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
 										</div>
 										</div>
 										<div class="coupon-price"><?php echo $dtc2['reduction']; ?> Off</div>
@@ -65,7 +65,7 @@
                                     <i class="stick-lbl hot-sale"></i>
                                 </div><!--end: .coupon-item -->
 								<?php } ?>
-                                <div class="grid_12">
+                                <!--div class="grid_12">
                                     <div class="pagination">
                                         <a class="txt-nav" href="#">Newer <span>post</span></a>
                                         <a class="page-num active" href="#">1</a>
@@ -75,7 +75,7 @@
                                         <a class="page-num" href="#">5</a>
                                         <a class="txt-nav" href="#">Older <span>post</span></a>
                                     </div>
-                                </div>
+                                </div-->
                             </div><!--end: tab coupon-->
                             <div class="tab-content-item clearfix">
                                 <div class="coupons-code-item view-code flex grid_6">

@@ -11,7 +11,7 @@
 							<?php if(isset($_SESSION['id_membre'])) { ?>
                             <a id="" class="btn btn-red type-login btn-login" href="deconnexion.html">Déconnexion</a>
 							<?php } else { ?>
-							<a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Connexion</a>
+							<a id="sys_head_login" class="btn btn-green type-login btn-login" href="javascript:void(0);">Connexion</a>
 							<?php } ?>
                             <nav class="main-nav">
                                 <ul id="main-menu" class="nav nav-horizontal clearfix">
@@ -28,7 +28,7 @@
                                         <a href="catalogues.html">Catalogues</a>
                                     </li>
 									<li>
-                                        <a class="try" id="try-3" href="#" title="">Contact</a>
+                                        <a class="try" id="try-3" href="javascript:void(0);" title="">Contact</a>
                                     </li>
 									<!--li>
                                         <a href="collection.html">New Collection</a>

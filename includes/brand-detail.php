@@ -32,7 +32,7 @@
                                         <div class="img-thumb-center">
                                             <div class="wrap-img-thumb">
                                                 <span class="ver_hold"></span>
-                                                <a href="coupon-<?php echo $dtc2['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
+                                                <a href="promo-<?php echo $dtc2['slug']; ?>.html" class="ver_container"><img src="images/photos/<?php echo $dtc2['logo']; ?>" alt="<?php echo $dtc2['titre']; ?>"></a>
                                             </div>
                                         </div>
                                         <div class="coupon-price">Réduction de: <span style="color:#F16262"><?php echo $dtc2['reduction']; ?></span></div>
@@ -95,9 +95,9 @@
 								$nmq=mysql_num_rows($reqq);
 								if($nmq==1){
 							?>
-                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Unfollow <?php echo $dtmch['marchand']; ?></a>
+                            <a class="btn btn-blue btn-unfollow-brand" data-id="<?php echo $dtmch['id']; ?>" href="javascript:void(0);">Unfollow <?php echo $dtmch['marchand']; ?></a>
 							<?php } else { ?>
-							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="#">Follow <?php echo $dtmch['marchand']; ?></a>
+							<a class="btn btn-blue btn-follow-brand" data-id="<?php echo $dtmch['id']; ?>" href="javascript:void(0);">Follow <?php echo $dtmch['marchand']; ?></a>
 							<?php } ?>
                             <div class="brand-desc">
                                 <div class="title-desc">À propos de <?php echo $dtmch['marchand']; ?></div>
